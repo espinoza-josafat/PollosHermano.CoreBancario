@@ -1,0 +1,56 @@
+<!--<div>
+    <mat-checkbox
+        [id]="id"
+        [(ngModel)]="model"
+        (ngModelChange)="modelChange.emit(model)"
+        [required]="required"
+        [disabled]="!getBoolean(enabled)"
+
+
+        [formControl]="control"
+
+        (change)="onChange($event)">
+        {{tag}}
+    </mat-checkbox>
+
+    <mat-error *ngIf="control.invalid">{{getErrorMessage()}}</mat-error>
+</div>-->
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <!--<label for="basic-form-3">E-mail</label>
+    <input type="text" id="basic-form-3" class="form-control" name="email">-->
+
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <div class="checkbox">
+        <input #underlyingElement
+               type="checkbox"
+               [id]="id"
+               [name]="id"
+               [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'"
+               [(ngModel)]="model"
+               (ngModelChange)="modelChange.emit(model)"
+               [readonly]="getBoolean(readonly)"
+               [required]="getBoolean(required)"
+               [attr.disabled]="getBoolean(enabled) ? null : true"
+               [formControl]="control"
+               (change)="onChange($event)"
+               autocomplete="off" />
+
+        <label [for]="id"><span>&nbsp;</span></label>
+      </div>
+
+      <input type="hidden"
+             class="form-control"
+             [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'" />
+
+      <div *ngIf="control.invalid" class="invalid-feedback">
+        {{getErrorMessage()}}
+      </div>
+    </div>
+  </div>
+</div>

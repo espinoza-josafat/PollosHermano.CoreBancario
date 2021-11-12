@@ -1,0 +1,85 @@
+<!--<mat-form-field>
+    <input 
+    matInput
+    #sigmaTextFieldInput
+    [type]="type"
+    [id]="id"
+    [placeholder]="tag"
+    [(ngModel)]="model"
+    (ngModelChange)="modelChange.emit(model)"
+    [minlength]="minLength"
+    [maxlength]="maxLength"
+    [readonly]="readonly"
+    [required]="required"
+
+
+    [pattern]="pattern"
+    [attr.min]="min !== null && min !== undefined ? min : null"
+    [attr.max]="max !== null && max !== undefined ? max : null"
+
+
+    [formControl]="control"
+
+    (click)="onClick($event)"
+    (keyup)="onKeyUp($event)"
+    (keydown)="onKeyDown($event)"
+    (blur)="onBlur($event)"
+    (input)="onInput($event)"
+    (change)="onChange($event)"
+    (copy)="onCopy($event)"
+    (cut)="onCut($event)"
+    (paste)="onPaste($event)"
+    (contextmenu)="onContextMenu($event)"
+    autocomplete="off" />
+
+    <mat-error *ngIf="control.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>-->
+
+
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <!--<label for="basic-form-3">E-mail</label>
+  <input type="text" id="basic-form-3" class="form-control" name="email">-->
+
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <input #element
+          [type]="type"
+          [id]="id"
+          [name]="id"
+          class="form-control"
+          [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'"
+          [placeholder]="tag"
+          [(ngModel)]="model"
+          (ngModelChange)="modelChange.emit(model)"
+          [minlength]="minLength"
+          [maxlength]="maxLength"
+          [readonly]="getBoolean(readonly)"
+          [required]="getBoolean(required)"
+          [attr.disabled]="getBoolean(enabled) ? null : true"
+          [pattern]="pattern"
+          [attr.min]="min !== null && min !== undefined ? min : null"
+          [attr.max]="max !== null && max !== undefined ? max : null"
+          [formControl]="control"
+          (click)="onClick($event)"
+          (keyup)="onKeyUp($event)"
+          (keydown)="onKeyDown($event)"
+          (blur)="onBlur($event)"
+          (input)="onInput($event)"
+          (change)="onChange($event)"
+          (copy)="onCopy($event)"
+          (cut)="onCut($event)"
+          (paste)="onPaste($event)"
+          (contextmenu)="onContextMenu($event)"
+          autocomplete="off" />
+
+      <div *ngIf="control.invalid" class="invalid-feedback">
+        {{getErrorMessage()}}
+      </div>
+    </div>
+  </div>
+</div>

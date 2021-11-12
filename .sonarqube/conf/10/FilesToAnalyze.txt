@@ -1,0 +1,11 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\DbContexts\IPollosHermanoCoreBancarioDBContext.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\DbContexts\PollosHermanoCoreBancarioDBContext.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\DbContexts\PollosHermanoCoreBancarioDBContext.ext.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\Factories\IPollosHermanoCoreBancarioDBFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\Factories\PollosHermanoCoreBancarioDBFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\UnitOfWork\PollosHermanoCoreBancarioDBUnitOfWork.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Program.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Startup.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\appsettings.Development.json
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\appsettings.json
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Infraestructure\Core\Repositories\obj\PollosHermano.CoreBancario.Infraestructure.csproj.EntityFrameworkCore.targets

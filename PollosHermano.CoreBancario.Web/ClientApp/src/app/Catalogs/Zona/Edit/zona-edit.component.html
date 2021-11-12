@@ -1,0 +1,58 @@
+<section>
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="content-header">Zona</div>
+    </div>
+  </div>
+  <form (ngSubmit)="save()">
+    <div class="row text-left">
+      <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                                <li [ngbNavItem]="1">
+    <a ngbNavLink>Datos generales</a>
+    <ng-template ngbNavContent>
+                
+        <div class="form-row">
+            <custom-hidden id="Zona-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-combo id="Zona-IdSucursal" name="IdSucursal" #IdSucursal [custom-component-validate]="IdSucursal" tag="Sucursal" bindValue="id" bindLabel="nombre"></custom-combo>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-textfield id="Zona-Nombre" name="Nombre" #Nombre [custom-component-validate]="Nombre" tag="Nombre"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-check id="Zona-Estatus" name="Estatus" #Estatus [custom-component-validate]="Estatus" tag="Estatus"></custom-check>
+        </div>
+
+            </ng-template>
+</li>
+
+                
+              </ul>
+
+              <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <a [routerLink]="['/Catalogs/Zona/List']" style="float: left;">
+        Ir a lista
+      </a>
+      <button class="btn btn-primary mr-2">
+        <i class="ft-check-square mr-1"></i>Guardar
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,5 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Entities\Attributes\MappingAttribute.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Entities\Attributes\NotMappingAttribute.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Entities\BaseEntity.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Entities\Models\Implementations\MongoDbConnectionString.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Entities\Models\Interfaces\IMongoDbConnectionString.cs

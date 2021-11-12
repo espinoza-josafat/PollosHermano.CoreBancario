@@ -1,0 +1,53 @@
+<section>
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="content-header">Rol</div>
+    </div>
+  </div>
+  <form (ngSubmit)="save()">
+    <div class="row text-left">
+      <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                  <a ngbNavLink>Datos generales</a>
+                  <ng-template ngbNavContent>
+
+                    <div class="form-row">
+                      <custom-hidden id="Roles-Id" name="Id" #Id [custom-component-validate]="Id" tag="Identificador"></custom-hidden>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-textfield id="Roles-Name" name="Name" #Name required="true" [custom-component-validate]="Name" tag="Nombre"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-hidden id="Roles-NormalizedName" name="NormalizedName" #NormalizedName [custom-component-validate]="NormalizedName"></custom-hidden>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-hidden id="Roles-ConcurrencyStamp" name="ConcurrencyStamp" #ConcurrencyStamp [custom-component-validate]="ConcurrencyStamp"></custom-hidden>
+                    </div>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <a [routerLink]="['/UserManagement/Roles/List']" style="float: left;">
+        Ir a lista
+      </a>
+      <button class="btn btn-primary mr-2">
+        <i class="ft-check-square mr-1"></i>Guardar
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,10 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Database.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Enums\DataBaseType.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Factories\DataBaseFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Factories\GenericDataBaseFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Factories\SqlServerFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Helpers\DataReaderMapper.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Helpers\DataSetMapper.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Helpers\ListMaper.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\Interfaces\IDataBase.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Data\SqlServer.cs

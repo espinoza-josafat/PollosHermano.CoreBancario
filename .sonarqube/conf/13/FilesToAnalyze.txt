@@ -1,0 +1,11 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\Controllers\WeatherForecastController.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\Models\WeatherForecast.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\Program.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\Startup.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\obj\Debug\net5.0\PollosHermano.CoreBancario.Api.AssemblyInfo.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\obj\Debug\net5.0\PollosHermano.CoreBancario.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\appsettings.Development.json
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\appsettings.json
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\Properties\launchSettings.json
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Api\obj\Debug\net5.0\apphost.exe

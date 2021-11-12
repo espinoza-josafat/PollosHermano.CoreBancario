@@ -1,0 +1,2 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Entities\Core\TestClass.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.CoreBancario.Entities\Models\Common\GenericResponse.cs

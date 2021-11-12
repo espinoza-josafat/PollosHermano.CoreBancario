@@ -1,0 +1,49 @@
+<!--<mat-form-field appearance="fill">
+    <mat-label>{{tag}}</mat-label>
+    <mat-select
+    [id]="id"
+    [disabled]="!getBoolean(enabled)"
+    [required]="required"
+
+
+    [formControl]="control"
+
+    (change)="onChange($event)"
+    [(ngModel)]="model"
+    (ngModelChange)="onChange($event)">
+        <mat-option *ngFor="let item of dataSource" [value]="item">{{getLabel(item)}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="control.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>-->
+
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <!--<label for="basic-form-3">E-mail</label>
+    <input type="text" id="basic-form-3" class="form-control" name="email">-->
+
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <ng-select [id]="id"
+                 [required]="getBoolean(required)"
+                 [readonly]="!getBoolean(enabled)"
+                 [formControl]="control"
+                 (change)="onChange($event)"
+                 [(ngModel)]="model"
+                 (ngModelChange)="onChange($event)">
+        <ng-option *ngFor="let item of dataSource" [value]="item">{{getBindLabel(item)}}</ng-option>
+      </ng-select>
+
+      <input type="hidden"
+             class="form-control"
+             [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'" />
+
+      <div *ngIf="control.invalid" class="invalid-feedback">
+        {{getErrorMessage()}}
+      </div>
+    </div>
+  </div>
+</div>

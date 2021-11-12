@@ -1,0 +1,7 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\Disposable.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\Factories\IUnitOfWorkMongoDbFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\Factories\IUnitOfWorkSqlServerFactory.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\Repositories\Common\RepositoryMongoDb.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\Repositories\Common\RepositorySqlServer.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\UnitOfWork\IUnitOfWorkMongoDb.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Infraestructure\UnitOfWork\IUnitOfWorkSqlServer.cs

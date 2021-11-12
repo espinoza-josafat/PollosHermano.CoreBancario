@@ -1,0 +1,63 @@
+<section>
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="content-header">Cliente</div>
+    </div>
+  </div>
+  <form (ngSubmit)="save()">
+    <div class="row text-left">
+      <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                                <li [ngbNavItem]="1">
+    <a ngbNavLink>Datos generales</a>
+    <ng-template ngbNavContent>
+                
+        <div class="form-row">
+            <custom-textfield id="Cliente-ApellidoPaterno" name="ApellidoPaterno" #ApellidoPaterno [custom-component-validate]="ApellidoPaterno" tag="Apellido paterno"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-hidden id="Cliente-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-textfield id="Cliente-Nombre" name="Nombre" #Nombre [custom-component-validate]="Nombre" tag="Nombre"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-textfield id="Cliente-ApellidoMaterno" name="ApellidoMaterno" #ApellidoMaterno [custom-component-validate]="ApellidoMaterno" tag="Apellido materno"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-date id="Cliente-FechaNacimiento" name="FechaNacimiento" #FechaNacimiento [custom-component-validate]="FechaNacimiento" tag="Fecha de nacimiento"></custom-date>
+        </div>
+
+            </ng-template>
+</li>
+
+                
+              </ul>
+
+              <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <a [routerLink]="['/Catalogs/Cliente/List']" style="float: left;">
+        Ir a lista
+      </a>
+      <button class="btn btn-primary mr-2">
+        <i class="ft-check-square mr-1"></i>Guardar
+      </button>
+    </div>
+  </form>
+</section>

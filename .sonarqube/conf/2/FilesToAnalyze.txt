@@ -1,0 +1,7 @@
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\Repositories\IRepositoryBase.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\Repositories\IRepositoryMongoDb.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\Repositories\IRepositorySqlServer.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\Sevices\EntityService.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\Sevices\IEntityService.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\Sevices\IService.cs
+C:\Projects\Personal\_._PROJECT_BASE_NAME_._\PollosHermano.MicroFramework.Domain\UnitOfWork\IUnitOfWork.cs

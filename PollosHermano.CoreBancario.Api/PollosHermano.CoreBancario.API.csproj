@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Data\PollosHermano.MicroFramework.Data.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Domain\PollosHermano.MicroFramework.Domain.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Entities\PollosHermano.MicroFramework.Entities.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Infraestructure\PollosHermano.MicroFramework.Infraestructure.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Tools\PollosHermano.MicroFramework.Tools.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Application\PollosHermano.CoreBancario.Application.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Common\PollosHermano.CoreBancario.Common.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Data\PollosHermano.CoreBancario.Data.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Domian\PollosHermano.CoreBancario.Domian.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Entities\PollosHermano.CoreBancario.Entities.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Infraestructure\PollosHermano.CoreBancario.Infraestructure.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Web.Common\PollosHermano.CoreBancario.Web.Common.csproj" />
+  </ItemGroup>
+
+</Project>

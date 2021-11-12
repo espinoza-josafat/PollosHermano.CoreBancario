@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Data\PollosHermano.MicroFramework.Data.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Domain\PollosHermano.MicroFramework.Domain.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Entities\PollosHermano.MicroFramework.Entities.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Infraestructure\PollosHermano.MicroFramework.Infraestructure.csproj" />
+    <ProjectReference Include="..\PollosHermano.MicroFramework.Tools\PollosHermano.MicroFramework.Tools.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Common\PollosHermano.CoreBancario.Common.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Data\PollosHermano.CoreBancario.Data.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Domian\PollosHermano.CoreBancario.Domian.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Entities\PollosHermano.CoreBancario.Entities.csproj" />
+    <ProjectReference Include="..\PollosHermano.CoreBancario.Infraestructure\PollosHermano.CoreBancario.Infraestructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Core\Services\" />
+    <Folder Include="Core\Processes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.10" />
+  </ItemGroup>
+
+</Project>

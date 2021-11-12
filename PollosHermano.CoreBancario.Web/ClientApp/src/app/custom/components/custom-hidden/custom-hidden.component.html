@@ -1,0 +1,16 @@
+<div class="col-md-12 col-12" [hidden]="true" remove-wrapper>
+  <div class="form-group row" style="margin: 0px;">
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      &nbsp;
+      <span [hidden]="true" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <input #element
+             type="hidden"
+             [id]="id"
+             [(ngModel)]="model"
+             (ngModelChange)="modelChange.emit(model)" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<!--<mat-form-field>
+  <textarea matInput
+            #sigmaTextAreaInput
+            [id]="id"
+            [placeholder]="tag"
+            [(ngModel)]="model"
+            (ngModelChange)="modelChange.emit(model)"
+            [minlength]="minLength"
+            [maxlength]="maxLength"
+            [cols]="cols"
+            [rows]="rows"
+            [readonly]="readonly"
+            [disabled]="!getBoolean(enabled)"
+            [required]="required"
+            [formControl]="control"
+            (click)="onClick($event)"
+            (keyup)="onKeyUp($event)"
+            (keydown)="onKeyDown($event)"
+            (blur)="onBlur($event)"
+            (copy)="onCopy($event)"
+            (cut)="onCut($event)"
+            (paste)="onPaste($event)"
+            (contextmenu)="onContextMenu($event)"
+            (input)="onInput($event)"
+            (change)="onChange($event)"></textarea>
+
+  <mat-error *ngIf="control.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>-->
+
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <textarea #element
+          [id]="id"
+          class="form-control"
+          [name]="id"
+          [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'"
+          [placeholder]="tag"
+          [(ngModel)]="model"
+          (ngModelChange)="modelChange.emit(model)"
+          [minlength]="minLength"
+          [maxlength]="maxLength"
+          [cols]="cols"
+          [rows]="rows"
+          [readonly]="getBoolean(readonly)"
+          [required]="getBoolean(required)"
+          [attr.disabled]="getBoolean(enabled) ? null : true"
+          [formControl]="control"
+          (click)="onClick($event)"
+          (keyup)="onKeyUp($event)"
+          (keydown)="onKeyDown($event)"
+          (blur)="onBlur($event)"
+          (copy)="onCopy($event)"
+          (cut)="onCut($event)"
+          (paste)="onPaste($event)"
+          (contextmenu)="onContextMenu($event)"
+          (input)="onInput($event)"
+          (change)="onChange($event)"></textarea>
+
+      <div *ngIf="control.invalid" class="invalid-feedback">
+        {{getErrorMessage()}}
+      </div>
+    </div>
+  </div>
+</div>

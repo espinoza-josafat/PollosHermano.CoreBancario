@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-12">
+    <div class="content-header">
+        Vendedor
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body">
+
+            <fieldset class="form-group">
+              <a [routerLink]="['/Catalogs/Vendedor/Edit']" class="btn btn-primary">
+                Nuevo
+              </a>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <div style="display: inline-block; width: 50%; float: left;">
+                <label for="inputSearchData">
+                  Buscar:
+                  <input id="inputSearchData" class="form-control form-control-sm d-inline-block width-200" type="text"
+                         placeholder="Escribe cualquier texto..." (keyup)="filterUpdate($event)" />
+                </label>
+              </div>
+            </fieldset>
+
+            <ngx-datatable
+              class="bootstrap core-bootstrap"
+              [columnMode]="columnMode.force"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="50"
+              [limit]="10"
+              [rows]="data"
+              [scrollbarH]="true">
+              <ngx-datatable-column name="" [sortable]="false">
+                <ng-template ngx-datatable-cell-template class="ft-align-center" let-row="row" let-value="value">
+                  <div class="mobile-hidden">
+                    <a [routerLink]="['/Catalogs/Vendedor/Edit/', row.id]">
+                      <i class="ft-edit text-primary cursor-pointer"></i>
+                    </a>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            
+                <ngx-datatable-column name="ApellidoPaterno" prop="apellidoPaterno" *ngIf="true"></ngx-datatable-column>
+
+            
+                <ngx-datatable-column name="Nombre" prop="nombre" *ngIf="true"></ngx-datatable-column>
+
+            
+                <ngx-datatable-column name="Id" prop="id" *ngIf="true"></ngx-datatable-column>
+
+            
+                <ngx-datatable-column name="Zona" prop="idZona" *ngIf="true"></ngx-datatable-column>
+
+            
+                <ngx-datatable-column name="ApellidoMaterno" prop="apellidoMaterno" *ngIf="true"></ngx-datatable-column>
+
+                        </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+<!--<div id="container-{{id}}">
+    <div style="margin-right: 3%;" *ngIf="tag">{{tag}}</div>
+    <mat-radio-group
+        [id]="id"
+        [required]="required"
+
+
+        [formControl]="control"
+        [(ngModel)]="model"
+        (ngModelChange)="onChange($event)"
+        [name]="group">
+        <mat-radio-button
+            *ngFor="let item of dataSource; let i = index;"
+            [value]="item"
+            id="{{id}}-{{i}}"
+            (change)="onChange($event)">
+            {{getLabel(item)}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="control.invalid">
+        <mat-error>{{getErrorMessage()}}</mat-error>
+    </div>
+</div>-->
+
+
+
+
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <!--<label for="basic-form-3">E-mail</label>
+    <input type="text" id="basic-form-3" class="form-control" name="email">-->
+
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <ul class="list-unstyled mb-0">
+        <li class="d-inline-block mr-2" *ngFor="let item of dataSource; let i = index;">
+          <div class="radio">
+            <input type="radio"
+                   id="{{id}}-{{i}}"
+                   [attr.name]="group"
+                   value="{{getBindValue(item)}}"
+                   [required]="getBoolean(required)"
+                   [attr.disabled]="getBoolean(enabled) ? null : true"
+                   [formControl]="control"
+                   [(ngModel)]="model"
+                   (ngModelChange)="onChange($event)" />
+            <label for="{{id}}-{{i}}">{{getBindLabel(item)}}</label>
+          </div>
+        </li>
+      </ul>
+
+      <input
+             type="hidden"
+             class="form-control"
+             [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'" />
+
+      <div *ngIf="control.invalid" class="invalid-feedback">
+        {{getErrorMessage()}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<section>
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="content-header">Usuarios</div>
+    </div>
+  </div>
+  <form (ngSubmit)="save()">
+    <div class="row text-left">
+      <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                  <a ngbNavLink>Datos generales</a>
+                  <ng-template ngbNavContent>
+
+                    <div class="form-row">
+                      <custom-combo id="Users-Role" name="Role" #Role required="true" [custom-component-validate]="Role" tag="Role" bindValue="id" bindLabel="name"></custom-combo>
+                    </div>
+                    
+                    <div class="form-row">
+                      <custom-textfield id="Users-Firstname" name="Firstname" #Firstname required="true" [custom-component-validate]="Firstname" tag="Firstname"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-textfield id="Users-FatherLastname" name="FatherLastname" #FatherLastname required="true" [custom-component-validate]="FatherLastname" tag="FatherLastname"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-textfield id="Users-MotherLastname" name="MotherLastname" #MotherLastname [custom-component-validate]="MotherLastname" tag="MotherLastname"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-textfield id="Users-Email" name="Email" #Email required="true" [custom-component-validate]="Email" tag="Email"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-textfield id="Users-UserName" name="UserName" required="true" #UserName [custom-component-validate]="UserName" tag="UserName"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-textfield id="Users-Password" name="Password" required="true" #Password [custom-component-validate]="Password" tag="Password"></custom-textfield>
+                    </div>
+
+                    <div class="form-row">
+                      <custom-hidden id="Users-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
+                    </div>
+
+                  </ng-template>
+                </li>
+
+
+              </ul>
+
+              <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <a [routerLink]="['/UserManagement/Users/List']" style="float: left;">
+        Ir a lista
+      </a>
+      <button class="btn btn-primary mr-2">
+        <i class="ft-check-square mr-1"></i>Guardar
+      </button>
+    </div>
+  </form>
+</section>
