@@ -6,7 +6,7 @@ namespace PollosHermano.CoreBancario.Entities.Models.Common
         {
             Status = 1;
             Message = "OK";
-            Description = "OK";
+            Description = "OK"; 
             Data = null;
         }
 
