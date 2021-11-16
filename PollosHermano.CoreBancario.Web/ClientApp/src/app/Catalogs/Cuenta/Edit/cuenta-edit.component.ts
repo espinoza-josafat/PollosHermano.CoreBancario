@@ -51,8 +51,8 @@ export class CuentaEditComponent extends CustomBaseComponent implements OnInit {
 
   getData() {
     forkJoin(
-            this.contratoService.get()
-      this.clienteService.get()
+            this.contratoService.get(),
+      this.clienteService.get(),
       this.catTipoCuentaService.get()
 
     ).subscribe((response: Array<any>) => {
