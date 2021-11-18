@@ -47,7 +47,7 @@ export class ZonaEditComponent extends CustomBaseComponent implements OnInit {
 
   getData() {
     forkJoin(
-            this.sucursalService.get()
+            this.sucursalService.get(),
 
     ).subscribe((response: Array<any>) => {
 

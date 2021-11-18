@@ -47,7 +47,7 @@ export class ContratoEditComponent extends CustomBaseComponent implements OnInit
 
   getData() {
     forkJoin(
-            this.preContratoService.get()
+            this.preContratoService.get(),
 
     ).subscribe((response: Array<any>) => {
 

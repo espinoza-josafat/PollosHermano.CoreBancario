@@ -67,7 +67,7 @@ export class CatTipoCuentaListComponent implements OnInit {
       let keys = Object.keys(this.filteredData[0]);
       const temp = this.filteredData.filter(function (item) {
         for (let i = 0; i < keys.length; i++) {
-          if (item[keys[i]].toString().toLowerCase().indexOf(value) !== -1 || !value) {
+          if (item[keys[i]] && item[keys[i]].toString().toLowerCase().indexOf(value) !== -1 || !value) {
             return true;
           }
         }

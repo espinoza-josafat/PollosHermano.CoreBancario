@@ -47,7 +47,7 @@ export class VendedorEditComponent extends CustomBaseComponent implements OnInit
 
   getData() {
     forkJoin(
-            this.zonaService.get()
+            this.zonaService.get(),
 
     ).subscribe((response: Array<any>) => {
 
