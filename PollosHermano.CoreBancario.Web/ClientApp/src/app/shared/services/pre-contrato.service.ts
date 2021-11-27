@@ -24,6 +24,10 @@ export class PreContratoService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/PreContrato/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/PreContrato/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/PreContrato`);

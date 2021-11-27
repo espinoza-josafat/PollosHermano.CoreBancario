@@ -24,6 +24,10 @@ export class VendedorService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/Vendedor/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/Vendedor/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/Vendedor`);

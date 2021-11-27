@@ -44,6 +44,10 @@
                     <a [routerLink]="['/Catalogs/Sucursal/Edit/', row.id]">
                       <i class="ft-edit text-primary cursor-pointer"></i>
                     </a>
+                    <a (click)="delete(row.id)">
+                        <i class="ft-trash text-danger cursor-pointer"></i>
+                    </a>
+                    
                   </div>
                 </ng-template>
               </ngx-datatable-column>

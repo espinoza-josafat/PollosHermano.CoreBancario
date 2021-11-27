@@ -24,6 +24,10 @@ export class SucursalService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/Sucursal/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/Sucursal/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/Sucursal`);

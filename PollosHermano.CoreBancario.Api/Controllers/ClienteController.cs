@@ -159,7 +159,7 @@ namespace PollosHermano.CoreBancario.API.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GenericResponse<Cliente>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(GenericResponse))]
-        public async Task<IActionResult> Delete([FromBody] byte id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {

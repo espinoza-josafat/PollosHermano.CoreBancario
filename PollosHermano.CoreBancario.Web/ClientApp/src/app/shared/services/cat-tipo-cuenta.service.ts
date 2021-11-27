@@ -24,6 +24,10 @@ export class CatTipoCuentaService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/CatTipoCuenta/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/CatTipoCuenta/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/CatTipoCuenta`);

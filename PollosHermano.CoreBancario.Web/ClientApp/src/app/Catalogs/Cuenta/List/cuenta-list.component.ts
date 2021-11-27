@@ -15,6 +15,9 @@ import Utils from "../../../shared/helpers/Utils";
 import {
     CuentaService
 } from "../../../shared/services/cuenta.service";
+import * as cAlert from "../../../custom/components/custom-alert/custom-alert";
+import * as cConfirm from "../../../custom/components/custom-confirm/custom-confirm";
+import { GenericResponse } from "../../../shared/models/common/GenericResponse";
 
 @Component({
   selector: "app-cuenta-list",
@@ -41,13 +44,11 @@ export class CuentaListComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    this.service.getList().subscribe((response: any) => {
-      if (Utils.IsValidJsonObject(response) &&
-        Utils.IsValidNumber(response.status) &&
-        response.status === 1 &&
-        Utils.IsValidArray(response.data) &&
-        response.data.length > 0) {
+  getData() {
+    this.service.getList().subscribe((response: GenericResponse<any>) => {
+      if (response &&
+          response.status === 1 &&
+          Utils.IsValidArray(response.data)) {
         this.data = response.data;
         this.filteredData = response.data;
       }
@@ -60,6 +61,37 @@ export class CuentaListComponent implements OnInit {
     });
   }
 
+  ngOnInit() {
+    this.getData();
+  }
+
+  delete(id: any) {
+    cConfirm.show(2, "", "¿Éstas seguro que deseas eliminar este elemento?", () => {
+        this.service.deleteById(id).subscribe((response: GenericResponse<any>) => {
+        if (response &&
+            response.status === 1 &&
+            response.data) {
+              
+            this.getData();
+
+            cAlert.show(1, "", "La informacion se eliminó correctamente", () => {
+                
+            });
+        }
+        },
+        (error: any) => {
+            cAlert.show(2, "", "Ocurrió un problema al eliminar la información", () => {
+
+            });
+        },
+        () => {
+
+        });
+    }, () => {
+
+    });
+    }
+  
   filterUpdate(event) {
     const value = event.target.value.toLowerCase();
 

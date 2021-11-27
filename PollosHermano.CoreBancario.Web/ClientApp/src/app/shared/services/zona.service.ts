@@ -24,6 +24,10 @@ export class ZonaService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/Zona/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/Zona/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/Zona`);

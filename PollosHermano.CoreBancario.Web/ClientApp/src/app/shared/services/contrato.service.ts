@@ -24,6 +24,10 @@ export class ContratoService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/Contrato/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/Contrato/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/Contrato`);

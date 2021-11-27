@@ -24,6 +24,10 @@ export class CuentaService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/Cuenta/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/Cuenta/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/Cuenta`);

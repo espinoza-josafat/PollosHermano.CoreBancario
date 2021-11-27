@@ -24,6 +24,10 @@ export class ClienteService {
   getById(id: any) {
     return this.http.get(`${this.apiUrl}/Cliente/${id}`);
   }
+
+  deleteById(id: any) {
+    return this.http.delete(`${this.apiUrl}/Cliente/${id}`);
+  }
   
   get() {
     return this.http.get(`${this.apiUrl}/Cliente`);
