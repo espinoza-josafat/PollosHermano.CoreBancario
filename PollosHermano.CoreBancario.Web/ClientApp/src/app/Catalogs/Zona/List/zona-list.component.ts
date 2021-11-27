@@ -90,7 +90,7 @@ export class ZonaListComponent implements OnInit {
     }, () => {
 
     });
-    }
+  }
   
   filterUpdate(event) {
     const value = event.target.value.toLowerCase();

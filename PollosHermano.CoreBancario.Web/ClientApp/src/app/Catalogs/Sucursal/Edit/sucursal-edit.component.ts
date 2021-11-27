@@ -14,6 +14,8 @@ import { forkJoin } from "rxjs";
 import { CustomBaseComponent } from "../../../custom/components/custom-base-component/CustomBaseComponent";
 import { CustomComponentValidateDirective } from "../../../custom/directives/custom-component-validate.directive";
 import Utils from "../../../shared/helpers/Utils";
+import * as cAlert from "../../../custom/components/custom-alert/custom-alert";
+import * as cConfirm from "../../../custom/components/custom-confirm/custom-confirm";
 import { GenericResponse } from "../../../shared/models/common/GenericResponse";
 
 
@@ -99,11 +101,15 @@ export class SucursalEditComponent extends CustomBaseComponent implements OnInit
         response.status === 1 &&
         Utils.IsValidJsonObject(response.data)) {
         this.setValue("Id", response.data.id, this.validators);
-        alert("La informacion se guardó correctamente");
+        cAlert.show(1, "", "La informacion se guardó correctamente", () => {
+
+        });
       }
     },
     (error: any) => {
+        cAlert.show(2, "", "Ocurrió un problema al guardar la información", () => {
 
+        });
     },
     () => {
 
