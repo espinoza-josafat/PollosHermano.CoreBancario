@@ -1,0 +1,26 @@
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <label class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <div class="input-group">
+        <ngb-timepicker #underlyingElement
+                        [(ngModel)]="model"
+                        [seconds]="seconds"
+                        [id]="id">
+        </ngb-timepicker>
+
+        <input type="hidden"
+               class="form-control"
+               [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'" />
+
+        <div *ngIf="control.invalid" class="invalid-feedback">
+          {{getErrorMessage()}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

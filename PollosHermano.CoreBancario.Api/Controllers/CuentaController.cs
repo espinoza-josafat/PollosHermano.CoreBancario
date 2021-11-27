@@ -13,7 +13,7 @@ namespace PollosHermano.CoreBancario.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CuentaController : ControllerBase
+    public partial class CuentaController : ControllerBase
     {
         readonly ICuentaService _service;
 
@@ -141,6 +141,37 @@ namespace PollosHermano.CoreBancario.API.Controllers
                 return Ok(new GenericResponse<Cuenta>
                 {
                     Data = model
+                });
+            }
+            catch (Exception exception)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, new GenericResponse
+                {
+                    Status = -1,
+                    Message = exception.Message,
+                    Description = exception.StackTrace,
+                });
+            }
+        }
+
+        
+        [HttpDelete("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GenericResponse<Cuenta>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(GenericResponse))]
+        public async Task<IActionResult> Delete([FromBody] byte id)
+        {
+            try
+            {
+                var entity = await _service.GetByIdAsync(id);
+                if (entity != null)
+                {
+                    await _service.DeleteAsync(entity);
+                }
+
+                return Ok(new GenericResponse<Cuenta>
+                {
+                    Data = entity
                 });
             }
             catch (Exception exception)

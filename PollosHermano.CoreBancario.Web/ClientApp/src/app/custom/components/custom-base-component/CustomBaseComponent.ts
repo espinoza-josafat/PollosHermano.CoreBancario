@@ -1,16 +1,16 @@
 import {
-    AfterContentChecked,
-    AfterContentInit,
-    AfterViewChecked,
-    AfterViewInit,
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
 
-    DoCheck,
-    Injectable,
-    OnChanges,
-    OnDestroy,
-    OnInit,
-    QueryList,
-    SimpleChanges
+  DoCheck,
+  Injectable,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  SimpleChanges
 } from "@angular/core";
 import { CustomComponentValidateDirective } from "../../directives/custom-component-validate.directive";
 import Utils from "../../../shared/helpers/Utils";
@@ -22,6 +22,7 @@ import { CustomTextAreaComponent } from "../custom-textarea/custom-textarea.comp
 import { CustomTextFieldComponent } from "../custom-textfield/custom-textfield.component";
 import { CustomDateComponent } from "../custom-date/custom-date.component";
 import { TextfieldMask } from "../../enums/TextfieldMask";
+import { CustomTimeComponent } from "../custom-time/custom-time.component";
 
 @Injectable()
 export abstract class CustomBaseComponent
@@ -33,8 +34,7 @@ export abstract class CustomBaseComponent
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
-{
+  OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
 
@@ -122,7 +122,7 @@ export abstract class CustomBaseComponent
           const customComboComponent = (x.component as CustomComboComponent);
           const valueCustomComboComponent = customComboComponent.value;
           if (valueCustomComboComponent !== undefined &&
-              valueCustomComboComponent !== null) {
+            valueCustomComboComponent !== null) {
             model[name] = valueCustomComboComponent;
           }
           break;
@@ -130,7 +130,7 @@ export abstract class CustomBaseComponent
           const customRadioComponent = (x.component as CustomRadioComponent);
           const valueCustomRadioComponent = customRadioComponent.value;
           if (valueCustomRadioComponent !== undefined &&
-              valueCustomRadioComponent !== null) {
+            valueCustomRadioComponent !== null) {
             model[name] = valueCustomRadioComponent;
           }
           break;
@@ -138,8 +138,16 @@ export abstract class CustomBaseComponent
           const customDateComponent = (x.component as CustomDateComponent);
           const valueCustomDateComponent = customDateComponent.value;
           if (valueCustomDateComponent !== undefined &&
-              valueCustomDateComponent !== null) {
+            valueCustomDateComponent !== null) {
             model[name] = valueCustomDateComponent;
+          }
+          break;
+        case "CustomTimeComponent":
+          const customTimeComponent = (x.component as CustomTimeComponent);
+          const valueCustomTimeComponent = customTimeComponent.value;
+          if (valueCustomTimeComponent !== undefined &&
+            valueCustomTimeComponent !== null) {
+            model[name] = valueCustomTimeComponent;
           }
           break;
       }
@@ -150,9 +158,9 @@ export abstract class CustomBaseComponent
 
   populateModel(model: any, validators: QueryList<CustomComponentValidateDirective>) {
     if (!Utils.IsValidJsonObject(model) ||
-        validators === undefined ||
-        validators === null ||
-        validators.length === 0) {
+      validators === undefined ||
+      validators === null ||
+      validators.length === 0) {
       return;
     }
 
@@ -215,6 +223,12 @@ export abstract class CustomBaseComponent
         const customDateComponent = (validator.component as CustomDateComponent);
         if (value !== undefined && value !== null) {
           customDateComponent.value = value;
+        }
+        break;
+      case "CustomTimeComponent":
+        const customTimeComponent = (validator.component as CustomTimeComponent);
+        if (value !== undefined && value !== null) {
+          customTimeComponent.value = value;
         }
         break;
     }
