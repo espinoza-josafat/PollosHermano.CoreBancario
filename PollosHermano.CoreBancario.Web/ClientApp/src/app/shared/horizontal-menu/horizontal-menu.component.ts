@@ -1,15 +1,18 @@
-import { Component, OnInit, ChangeDetectorRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { HROUTES } from './navigation-routes.config';
-import { LayoutService } from '../services/layout.service';
-import { ConfigService } from '../services/config.service';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
-
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Subscription } from "rxjs";
+import { JwtService } from "../auth/jwt.service";
+import Utils from "../helpers/Utils";
+import { GenericResponse } from "../models/common/GenericResponse";
+import { ConfigService } from "../services/config.service";
+import { LayoutService } from "../services/layout.service";
+import { MenuService } from "../services/syscore/menu.service";
+import { RouteInfo } from "../vertical-menu/vertical-menu.metadata";
 
 @Component({
-  selector: 'app-horizontal-menu',
-  templateUrl: './horizontal-menu.component.html',
-  styleUrls: ['./horizontal-menu.component.scss']
+  selector: "app-horizontal-menu",
+  templateUrl: "./horizontal-menu.component.html",
+  styleUrls: ["./horizontal-menu.component.scss"]
 })
 export class HorizontalMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
@@ -17,19 +20,57 @@ export class HorizontalMenuComponent implements OnInit, AfterViewInit, OnDestroy
   public config: any = {};
   level: number = 0;
   transparentBGClass = "";
-  menuPosition = 'Side';
+  menuPosition = "Side";
 
   layoutSub: Subscription;
+
+  private HROUTES: any[] = [];
 
   constructor(private layoutService: LayoutService,
     private configService: ConfigService,
     private cdr: ChangeDetectorRef,
-    private router: Router) {
+    private router: Router,
+    private jwtService: JwtService,
+    private menuService: MenuService) {
     this.config = this.configService.templateConf;
   }
 
   ngOnInit() {
-    this.menuItems = HROUTES;
+    const jwt = this.jwtService.get();
+    this.menuService.getMenuByUser(jwt.id).subscribe((response: GenericResponse<any>) => {
+      if (response &&
+        response.status === 1 &&
+        Utils.IsValidArray(response.data)) {
+        this.HROUTES = this.generateHorizontalMenuRecursively(response.data, { class: "dropdown nav-item has-sub" });
+        this.menuItems = this.HROUTES;
+      }
+    },
+      (error: any) => {
+
+      },
+      () => {
+
+      });
+  }
+
+  private generateHorizontalMenuRecursively(menus: any[], complement: any): RouteInfo[] {
+    const result: RouteInfo[] = [];
+
+    for (var i = 0; i < menus.length; i++) {
+      const menu = menus[i];
+      result.push({
+        path: menu.path,
+        title: menu.name,
+        icon: menu.icon,
+        class: complement.class,
+        isExternalLink: menu.isExternalLink,
+        submenu: this.generateHorizontalMenuRecursively(menu.childrens, { class: "dropdown-item" }),
+        badge: Utils.IsValidStringNotWhiteSpace(complement.badge) ? complement.badge : "",
+        badgeClass: Utils.IsValidStringNotWhiteSpace(complement.badgeClass) ? complement.badgeClass : "",
+      });
+    }
+
+    return result;
   }
 
   ngAfterViewInit() {
@@ -45,7 +86,6 @@ export class HorizontalMenuComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   loadLayout() {
-
     if (this.config.layout.menuPosition && this.config.layout.menuPosition.toString().trim() != "") {
       this.menuPosition = this.config.layout.menuPosition;
     }
@@ -57,7 +97,6 @@ export class HorizontalMenuComponent implements OnInit, AfterViewInit, OnDestroy
     else {
       this.transparentBGClass = "";
     }
-
   }
 
   ngOnDestroy() {
@@ -65,5 +104,4 @@ export class HorizontalMenuComponent implements OnInit, AfterViewInit, OnDestroy
       this.layoutSub.unsubscribe();
     }
   }
-
 }

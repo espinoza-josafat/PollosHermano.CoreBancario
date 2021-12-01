@@ -34,6 +34,7 @@
     <None Remove="ClientApp\src\app\shared\auth\jwt.service.ts" />
     <None Remove="ClientApp\src\app\shared\interceptors\app-service.interceptor.ts" />
     <None Remove="ClientApp\src\app\shared\services\identity.service.ts" />
+    <None Remove="ClientApp\src\app\shared\services\syscore\menu.service.ts" />
     <None Remove="ClientApp\src\app\shared\storage\local-storage.service.ts" />
   </ItemGroup>
 
@@ -50,6 +51,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\shared\auth\jwt.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\interceptors\app-service.interceptor.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\services\identity.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\services\syscore\menu.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\storage\local-storage.service.ts" />
   </ItemGroup>
 

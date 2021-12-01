@@ -64,6 +64,7 @@ namespace PollosHermano.CoreBancario.Api
             AddScopeTypesEndsWith<Domian.Core.Dao.ISucursalDao, Data.Core.SucursalDao>(services, "Dao");
             AddScopeTypesEndsWith<Domian.Core.Repositories.ISucursalRepository, Infraestructure.Core.Repositories.SucursalRepository>(services, "Repository");
             AddScopeTypesEndsWith<Domian.Core.Services.ISucursalService, Application.Core.Services.SucursalService>(services, "Service");
+            AddScopeTypesStartsWith<Domian.SysCore.Processes.IProcessGetMenusByUser, Application.SysCore.Processes.ProcessGetMenusByUser>(services, "IProcess", "Process");
 
             services.AddControllers().AddNewtonsoftJson(ConfigureJson);
             services.AddSwaggerGen(c =>
