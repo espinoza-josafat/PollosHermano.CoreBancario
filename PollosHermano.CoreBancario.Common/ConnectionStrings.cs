@@ -10,13 +10,13 @@ namespace PollosHermano.CoreBancario.Common
             return Configuration.Manager.GetConnectionString("PollosHermanoCoreBancarioDBConnectionString");
         });
 
-        static readonly Lazy<string> IdentityConnectionStringInstance = new Lazy<string>(() =>
+        static readonly Lazy<string> SysCoreConnectionStringInstance = new Lazy<string>(() =>
         {
-            return Configuration.Manager.GetConnectionString("IdentityConnectionString");
+            return Configuration.Manager.GetConnectionString("SysCoreConnectionString");
         });
 
         public static string PollosHermanoCoreBancarioDBConnectionString { get { return _PollosHermanoCoreBancarioDBConnectionStringInstance.Value; } }
 
-        public static string IdentityConnectionString { get { return IdentityConnectionStringInstance.Value; } }
+        public static string SysCoreConnectionString { get { return SysCoreConnectionStringInstance.Value; } }
     }
 }

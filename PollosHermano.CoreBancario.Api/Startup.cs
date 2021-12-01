@@ -1,5 +1,5 @@
 using PollosHermano.CoreBancario.Common;
-using PollosHermano.CoreBancario.Infraestructure.Identity.DbContexts;
+using PollosHermano.CoreBancario.Infraestructure.SysCore.DbContexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,10 +28,10 @@ namespace PollosHermano.CoreBancario.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IdentityContext>(options => options.UseSqlServer(ConnectionStrings.IdentityConnectionString).UseLazyLoadingProxies());
+            services.AddDbContext<SysCoreContext>(options => options.UseSqlServer(ConnectionStrings.SysCoreConnectionString).UseLazyLoadingProxies());
 
-            services.AddIdentity<Entities.Identity.User, Entities.Identity.Role>()
-            .AddEntityFrameworkStores<IdentityContext>()
+            services.AddIdentity<Entities.SysCore.User, Entities.SysCore.Role>()
+            .AddEntityFrameworkStores<SysCoreContext>()
             .AddDefaultTokenProviders();
 
             // Adding Authentication
@@ -58,8 +58,8 @@ namespace PollosHermano.CoreBancario.Api
             services.AddScoped<Domian.Core.UnitOfWork.IPollosHermanoCoreBancarioDBUnitOfWork, Infraestructure.Core.UnitOfWork.PollosHermanoCoreBancarioDBUnitOfWork>();
             services.AddScoped<Infraestructure.Core.Factories.IPollosHermanoCoreBancarioDBFactory, Infraestructure.Core.Factories.PollosHermanoCoreBancarioDBFactory>();
 
-            services.AddScoped<Domian.Identity.UnitOfWork.IIdentityUnitOfWork, Infraestructure.Identity.UnitOfWork.IdentityUnitOfWork>();
-            services.AddScoped<Infraestructure.Identity.Factories.IIdentityFactory, Infraestructure.Identity.Factories.IdentityFactory>();
+            services.AddScoped<Domian.SysCore.UnitOfWork.ISysCoreUnitOfWork, Infraestructure.SysCore.UnitOfWork.SysCoreUnitOfWork>();
+            services.AddScoped<Infraestructure.SysCore.Factories.ISysCoreFactory, Infraestructure.SysCore.Factories.SysCoreFactory>();
 
             AddScopeTypesEndsWith<Domian.Core.Dao.ISucursalDao, Data.Core.SucursalDao>(services, "Dao");
             AddScopeTypesEndsWith<Domian.Core.Repositories.ISucursalRepository, Infraestructure.Core.Repositories.SucursalRepository>(services, "Repository");
