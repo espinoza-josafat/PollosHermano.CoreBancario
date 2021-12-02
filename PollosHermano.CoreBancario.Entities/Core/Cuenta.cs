@@ -9,8 +9,14 @@ namespace PollosHermano.CoreBancario.Entities.Core
     [Table("Cuenta", Schema = "dbo")]
     public class Cuenta : BaseEntity
     {
+        [Key]
         [Required]
-        [Column("IdContrato", Order = 1, TypeName = "int")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("Id", Order = 1, TypeName = "int")]
+        public virtual int Id { get; set; }
+        
+        [Required]
+        [Column("IdContrato", Order = 2, TypeName = "int")]
         public virtual int IdContrato { get; set; }
         
         [ForeignKey("IdContrato")]
@@ -19,7 +25,7 @@ namespace PollosHermano.CoreBancario.Entities.Core
         public virtual Contrato Contrato  { get; set; }
         
         [Required]
-        [Column("IdCliente", Order = 2, TypeName = "int")]
+        [Column("IdCliente", Order = 3, TypeName = "int")]
         public virtual int IdCliente { get; set; }
         
         [ForeignKey("IdCliente")]
@@ -28,7 +34,7 @@ namespace PollosHermano.CoreBancario.Entities.Core
         public virtual Cliente Cliente  { get; set; }
         
         [Required]
-        [Column("IdTipoCuenta", Order = 3, TypeName = "tinyint")]
+        [Column("IdTipoCuenta", Order = 4, TypeName = "tinyint")]
         public virtual byte IdTipoCuenta { get; set; }
         
         [ForeignKey("IdTipoCuenta")]
@@ -37,15 +43,9 @@ namespace PollosHermano.CoreBancario.Entities.Core
         public virtual CatTipoCuenta CatTipoCuenta  { get; set; }
         
         [Required]
-        [Column("NumeroCuenta", Order = 4, TypeName = "nvarchar")]
+        [Column("NumeroCuenta", Order = 5, TypeName = "nvarchar")]
         [MaxLength(13)]
         public virtual string NumeroCuenta { get; set; }
-        
-        [Key]
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("Id", Order = 5, TypeName = "int")]
-        public virtual int Id { get; set; }
         
         
     }

@@ -22,9 +22,9 @@ export const ROUTES: RouteInfo[] = [
         
         { path: "/Catalogs/CatTipoCuenta/List", title: "Tipo de cuenta", icon: "ft-arrow-right submenu-icon", class: "", badge: "", badgeClass: "", isExternalLink: false, submenu: [] },
         
-        { path: "/Catalogs/Cuenta/List", title: "Cuenta", icon: "ft-arrow-right submenu-icon", class: "", badge: "", badgeClass: "", isExternalLink: false, submenu: [] },
-        
         { path: "/Catalogs/Cliente/List", title: "Cliente", icon: "ft-arrow-right submenu-icon", class: "", badge: "", badgeClass: "", isExternalLink: false, submenu: [] },
+        
+        { path: "/Catalogs/Cuenta/List", title: "Cuenta", icon: "ft-arrow-right submenu-icon", class: "", badge: "", badgeClass: "", isExternalLink: false, submenu: [] },
         
       ]
   },

@@ -11,7 +11,7 @@ namespace PollosHermano.CoreBancario.Entities.SysCore
 		[Key]
 		[Required]
 		[Column("Id", Order = 1, TypeName = "uniqueidentifier")]
-		public virtual Guid Id { get; set; } //(uniqueidentifier, not null)
+		public virtual Guid Id { get; set; } = Guid.NewGuid(); //(uniqueidentifier, not null)
 
 		[Newtonsoft.Json.JsonIgnore]
 		[System.Text.Json.Serialization.JsonIgnore]

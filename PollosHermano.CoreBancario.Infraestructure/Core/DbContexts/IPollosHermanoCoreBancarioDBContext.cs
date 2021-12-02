@@ -12,8 +12,8 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.DbContexts
         DbSet<PreContrato> PreContrato { get; set; }
         DbSet<Contrato> Contrato { get; set; }
         DbSet<CatTipoCuenta> CatTipoCuenta { get; set; }
-        DbSet<Cuenta> Cuenta { get; set; }
         DbSet<Cliente> Cliente { get; set; }
+        DbSet<Cuenta> Cuenta { get; set; }
         
     }
 }

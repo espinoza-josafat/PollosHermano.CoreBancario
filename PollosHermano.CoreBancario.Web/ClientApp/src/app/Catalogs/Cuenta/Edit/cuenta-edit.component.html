@@ -16,6 +16,11 @@
     <ng-template ngbNavContent>
                 
         <div class="form-row">
+            <custom-hidden id="Cuenta-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
+        </div>
+
+                
+        <div class="form-row">
             <custom-combo id="Cuenta-IdContrato" name="IdContrato" #IdContrato [custom-component-validate]="IdContrato" tag="Contrato" bindValue="id" bindLabel="id"></custom-combo>
         </div>
 
@@ -32,11 +37,6 @@
                 
         <div class="form-row">
             <custom-textfield id="Cuenta-NumeroCuenta" name="NumeroCuenta" #NumeroCuenta [custom-component-validate]="NumeroCuenta" tag="Numero de cuenta"></custom-textfield>
-        </div>
-
-                
-        <div class="form-row">
-            <custom-hidden id="Cuenta-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
         </div>
 
             </ng-template>

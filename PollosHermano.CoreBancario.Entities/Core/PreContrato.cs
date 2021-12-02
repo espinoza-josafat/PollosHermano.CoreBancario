@@ -20,20 +20,7 @@ namespace PollosHermano.CoreBancario.Entities.Core
         public virtual ICollection<Contrato> Contratos  { get; set; }
         
         [Required]
-        [Column("NombreProspecto", Order = 2, TypeName = "nvarchar")]
-        [MaxLength(25)]
-        public virtual string NombreProspecto { get; set; }
-        
-        [Required]
-        [Column("FechaNacimientoProspecto", Order = 3, TypeName = "Date")]
-        public virtual DateTime FechaNacimientoProspecto { get; set; }
-        
-        [Column("ApellidoMaternoProspecto", Order = 4, TypeName = "nvarchar")]
-        [MaxLength(25)]
-        public virtual string ApellidoMaternoProspecto { get; set; }
-        
-        [Required]
-        [Column("IdVendedor", Order = 5, TypeName = "int")]
+        [Column("IdVendedor", Order = 2, TypeName = "int")]
         public virtual int IdVendedor { get; set; }
         
         [ForeignKey("IdVendedor")]
@@ -42,14 +29,27 @@ namespace PollosHermano.CoreBancario.Entities.Core
         public virtual Vendedor Vendedor  { get; set; }
         
         [Required]
-        [Column("ApellidoPaternoProspecto", Order = 6, TypeName = "nvarchar")]
+        [Column("Numero", Order = 3, TypeName = "nvarchar")]
+        [MaxLength(10)]
+        public virtual string Numero { get; set; }
+        
+        [Required]
+        [Column("NombreProspecto", Order = 4, TypeName = "nvarchar")]
+        [MaxLength(25)]
+        public virtual string NombreProspecto { get; set; }
+        
+        [Required]
+        [Column("ApellidoPaternoProspecto", Order = 5, TypeName = "nvarchar")]
         [MaxLength(25)]
         public virtual string ApellidoPaternoProspecto { get; set; }
         
+        [Column("ApellidoMaternoProspecto", Order = 6, TypeName = "nvarchar")]
+        [MaxLength(25)]
+        public virtual string ApellidoMaternoProspecto { get; set; }
+        
         [Required]
-        [Column("Numero", Order = 7, TypeName = "nvarchar")]
-        [MaxLength(10)]
-        public virtual string Numero { get; set; }
+        [Column("FechaNacimientoProspecto", Order = 7, TypeName = "Date")]
+        public virtual DateTime FechaNacimientoProspecto { get; set; }
         
         
     }

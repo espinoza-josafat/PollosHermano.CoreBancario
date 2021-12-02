@@ -16,17 +16,17 @@
     <ng-template ngbNavContent>
                 
         <div class="form-row">
+            <custom-textfield id="Sucursal-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
             <custom-textfield id="Sucursal-Nombre" name="Nombre" #Nombre [custom-component-validate]="Nombre" tag="Nombre"></custom-textfield>
         </div>
 
                 
         <div class="form-row">
             <custom-textfield id="Sucursal-Direccion" name="Direccion" #Direccion [custom-component-validate]="Direccion" tag="Dirección"></custom-textfield>
-        </div>
-
-                
-        <div class="form-row">
-            <custom-textfield id="Sucursal-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-textfield>
         </div>
 
             </ng-template>

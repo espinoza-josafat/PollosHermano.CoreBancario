@@ -9,15 +9,10 @@ namespace PollosHermano.CoreBancario.Entities.Core
     [Table("Cliente", Schema = "dbo")]
     public class Cliente : BaseEntity
     {
-        [Required]
-        [Column("ApellidoPaterno", Order = 1, TypeName = "nvarchar")]
-        [MaxLength(25)]
-        public virtual string ApellidoPaterno { get; set; }
-        
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("Id", Order = 2, TypeName = "int")]
+        [Column("Id", Order = 1, TypeName = "int")]
         public virtual int Id { get; set; }
         
         [Newtonsoft.Json.JsonIgnore]
@@ -25,9 +20,14 @@ namespace PollosHermano.CoreBancario.Entities.Core
         public virtual ICollection<Cuenta> Cuentas  { get; set; }
         
         [Required]
-        [Column("Nombre", Order = 3, TypeName = "nvarchar")]
+        [Column("Nombre", Order = 2, TypeName = "nvarchar")]
         [MaxLength(25)]
         public virtual string Nombre { get; set; }
+        
+        [Required]
+        [Column("ApellidoPaterno", Order = 3, TypeName = "nvarchar")]
+        [MaxLength(25)]
+        public virtual string ApellidoPaterno { get; set; }
         
         [Column("ApellidoMaterno", Order = 4, TypeName = "nvarchar")]
         [MaxLength(25)]

@@ -16,12 +16,12 @@
     <ng-template ngbNavContent>
                 
         <div class="form-row">
-            <custom-combo id="Contrato-IdPreContrato" name="IdPreContrato" #IdPreContrato [custom-component-validate]="IdPreContrato" tag="Pre contrato" bindValue="id" bindLabel="numero"></custom-combo>
+            <custom-hidden id="Contrato-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
         </div>
 
                 
         <div class="form-row">
-            <custom-hidden id="Contrato-Id" name="Id" #Id [custom-component-validate]="Id" tag="Id"></custom-hidden>
+            <custom-combo id="Contrato-IdPreContrato" name="IdPreContrato" #IdPreContrato [custom-component-validate]="IdPreContrato" tag="Pre contrato" bindValue="id" bindLabel="numero"></custom-combo>
         </div>
 
             </ng-template>

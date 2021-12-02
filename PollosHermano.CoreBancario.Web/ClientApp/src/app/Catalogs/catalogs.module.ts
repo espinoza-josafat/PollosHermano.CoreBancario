@@ -29,10 +29,10 @@ import { ContratoListComponent } from "./Contrato/List/contrato-list.component";
 import { ContratoEditComponent } from "./Contrato/Edit/contrato-edit.component";
 import { CatTipoCuentaListComponent } from "./CatTipoCuenta/List/cat-tipo-cuenta-list.component";
 import { CatTipoCuentaEditComponent } from "./CatTipoCuenta/Edit/cat-tipo-cuenta-edit.component";
-import { CuentaListComponent } from "./Cuenta/List/cuenta-list.component";
-import { CuentaEditComponent } from "./Cuenta/Edit/cuenta-edit.component";
 import { ClienteListComponent } from "./Cliente/List/cliente-list.component";
 import { ClienteEditComponent } from "./Cliente/Edit/cliente-edit.component";
+import { CuentaListComponent } from "./Cuenta/List/cuenta-list.component";
+import { CuentaEditComponent } from "./Cuenta/Edit/cuenta-edit.component";
 
 
 @NgModule({
@@ -67,10 +67,10 @@ import { ClienteEditComponent } from "./Cliente/Edit/cliente-edit.component";
     ContratoEditComponent,
     CatTipoCuentaListComponent,
     CatTipoCuentaEditComponent,
-    CuentaListComponent,
-    CuentaEditComponent,
     ClienteListComponent,
     ClienteEditComponent,
+    CuentaListComponent,
+    CuentaEditComponent,
 
 
   ]

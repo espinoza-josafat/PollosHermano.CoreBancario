@@ -21,22 +21,17 @@
 
                 
         <div class="form-row">
-            <custom-textfield id="PreContrato-NombreProspecto" name="NombreProspecto" #NombreProspecto [custom-component-validate]="NombreProspecto" tag="Nombre del prospecto"></custom-textfield>
-        </div>
-
-                
-        <div class="form-row">
-            <custom-date id="PreContrato-FechaNacimientoProspecto" name="FechaNacimientoProspecto" #FechaNacimientoProspecto [custom-component-validate]="FechaNacimientoProspecto" tag="Fecha de nacimiento del prospecto"></custom-date>
-        </div>
-
-                
-        <div class="form-row">
-            <custom-textfield id="PreContrato-ApellidoMaternoProspecto" name="ApellidoMaternoProspecto" #ApellidoMaternoProspecto [custom-component-validate]="ApellidoMaternoProspecto" tag="Apellido materno del prospecto"></custom-textfield>
-        </div>
-
-                
-        <div class="form-row">
             <custom-combo id="PreContrato-IdVendedor" name="IdVendedor" #IdVendedor [custom-component-validate]="IdVendedor" tag="Vendedor" bindValue="id" bindLabel="nombre"></custom-combo>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-textfield id="PreContrato-Numero" name="Numero" #Numero [custom-component-validate]="Numero" tag="Número"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-textfield id="PreContrato-NombreProspecto" name="NombreProspecto" #NombreProspecto [custom-component-validate]="NombreProspecto" tag="Nombre del prospecto"></custom-textfield>
         </div>
 
                 
@@ -46,7 +41,12 @@
 
                 
         <div class="form-row">
-            <custom-textfield id="PreContrato-Numero" name="Numero" #Numero [custom-component-validate]="Numero" tag="Número"></custom-textfield>
+            <custom-textfield id="PreContrato-ApellidoMaternoProspecto" name="ApellidoMaternoProspecto" #ApellidoMaternoProspecto [custom-component-validate]="ApellidoMaternoProspecto" tag="Apellido materno del prospecto"></custom-textfield>
+        </div>
+
+                
+        <div class="form-row">
+            <custom-date id="PreContrato-FechaNacimientoProspecto" name="FechaNacimientoProspecto" #FechaNacimientoProspecto [custom-component-validate]="FechaNacimientoProspecto" tag="Fecha de nacimiento del prospecto"></custom-date>
         </div>
 
             </ng-template>
