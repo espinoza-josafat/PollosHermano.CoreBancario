@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Application.Core.Services
 {
-    public class PreContratoService : EntityService<PreContrato>, IPreContratoService
+    public partial class PreContratoService : EntityService<PreContrato>, IPreContratoService
     {
         readonly IPollosHermanoCoreBancarioDBUnitOfWork _unitOfWork;
         readonly IPreContratoRepository _repository;

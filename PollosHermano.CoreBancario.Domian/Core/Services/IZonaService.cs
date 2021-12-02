@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Services
 {
-    public interface IZonaService : IEntityService<Zona>
+    public partial interface IZonaService : IEntityService<Zona>
     {
         Task<IEnumerable<GetZonaListModel>> GetZonaListAsync();
 

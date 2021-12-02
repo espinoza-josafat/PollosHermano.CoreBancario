@@ -3,7 +3,7 @@ using PollosHermano.CoreBancario.Entities.SysCore;
 
 namespace PollosHermano.CoreBancario.Domian.SysCore.Services
 {
-    public interface IRoleMenuService : IEntityService<RoleMenu>
+    public partial interface IRoleMenuService : IEntityService<RoleMenu>
     {
     }
 }

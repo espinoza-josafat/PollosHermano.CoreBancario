@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Application.SysCore.Services
 {
-    public class MenuService : EntityService<Menu>, IMenuService
+    public partial class MenuService : EntityService<Menu>, IMenuService
     {
         readonly ISysCoreUnitOfWork _unitOfWork;
         readonly IMenuRepository _repository;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Application.SysCore.Services
 {
-    public class UserService : EntityService<User>, IUserService
+    public partial class UserService : EntityService<User>, IUserService
     {
         readonly ISysCoreUnitOfWork _unitOfWork;
         readonly IUserRepository _repository;

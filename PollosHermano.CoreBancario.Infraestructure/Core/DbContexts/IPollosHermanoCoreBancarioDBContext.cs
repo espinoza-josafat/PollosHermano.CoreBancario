@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PollosHermano.CoreBancario.Infraestructure.Core.DbContexts
 {
-    public interface IPollosHermanoCoreBancarioDBContext : IUnitOfWorkSqlServer
+    public partial interface IPollosHermanoCoreBancarioDBContext : IUnitOfWorkSqlServer
     {
         DbSet<Sucursal> Sucursal { get; set; }
         DbSet<Zona> Zona { get; set; }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Dao
 {
-    public interface IZonaDao
+    public partial interface IZonaDao
     {
         Task<IEnumerable<GetZonaListModel>> GetZonaListAsync();
     }

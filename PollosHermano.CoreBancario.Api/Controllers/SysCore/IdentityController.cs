@@ -19,7 +19,7 @@ namespace PollosHermano.CoreBancario.Api.Controllers.SysCore
 {
     [Route("[controller]")]
     [ApiController]
-    public class IdentityController : ControllerBase
+    public partial class IdentityController : ControllerBase
     {
         readonly UserManager<User> _userManager;
         readonly RoleManager<Role> _roleManager;

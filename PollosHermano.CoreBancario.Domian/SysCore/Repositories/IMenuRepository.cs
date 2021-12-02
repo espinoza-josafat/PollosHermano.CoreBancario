@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.SysCore.Repositories
 {
-    public interface IMenuRepository : IRepositorySqlServer<Menu>
+    public partial interface IMenuRepository : IRepositorySqlServer<Menu>
     {
         Task<Menu> GetByIdAsync(Guid id);
     }

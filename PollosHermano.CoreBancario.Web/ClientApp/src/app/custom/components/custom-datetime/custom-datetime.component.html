@@ -1,0 +1,110 @@
+<!--<mat-form-field>
+    <input 
+    matInput
+    #sigmaTextFieldInput
+    [type]="type"
+    [id]="id"
+    [placeholder]="tag"
+    [(ngModel)]="model"
+    (ngModelChange)="modelChange.emit(model)"
+    [minlength]="minLength"
+    [maxlength]="maxLength"
+    [readonly]="readonly"
+    [required]="required"
+
+
+    [pattern]="pattern"
+    [attr.min]="min !== null && min !== undefined ? min : null"
+    [attr.max]="max !== null && max !== undefined ? max : null"
+
+
+    [formControl]="control"
+
+    (click)="onClick($event)"
+    (keyup)="onKeyUp($event)"
+    (keydown)="onKeyDown($event)"
+    (blur)="onBlur($event)"
+    (input)="onInput($event)"
+    (change)="onChange($event)"
+    (copy)="onCopy($event)"
+    (cut)="onCut($event)"
+    (paste)="onPaste($event)"
+    (contextmenu)="onContextMenu($event)"
+    autocomplete="off" />
+
+    <mat-error *ngIf="control.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>-->
+
+
+<div class="col-md-12 col-12" [hidden]="!getBoolean(visible)" remove-wrapper>
+  <div class="form-group row">
+    <!--<label for="basic-form-3">E-mail</label>
+  <input type="text" id="basic-form-3" class="form-control" name="email">-->
+
+    <label [for]="id" class="col-md-3 col-form-label align-right">
+      {{tag}}
+      <span [hidden]="!getBoolean(required)" class="text-color-red"> *</span>
+    </label>
+
+    <div class="col-md-9">
+      <div class="input-group">
+        <input #element
+               id="{{id}}-input"
+               name="{{id}}-input"
+               class="form-control"
+               [ngClass]="control.invalid ? 'is-invalid' : 'is-valid'"
+               [placeholder]="tag"
+               [(ngModel)]="dateString | date:inputDatetimeFormat"
+               (ngModelChange)="modelChange.emit(model)"
+               [readonly]="getBoolean(readonly)"
+               [required]="getBoolean(required)"
+               [attr.disabled]="getBoolean(enabled) ? null : true"
+               [formControl]="control"
+               (click)="onClick($event)"
+               (keyup)="onKeyUp($event)"
+               (keydown)="onKeyDown($event)"
+               (blur)="onBlur($event)"
+               (input)="onInput($event)"
+               (change)="onChange($event)"
+               (copy)="onCopy($event)"
+               (cut)="onCut($event)"
+               (paste)="onPaste($event)"
+               (contextmenu)="onContextMenu($event)"
+               autocomplete="off" />
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary" [ngbPopover]="calendarContent">
+            <fa-icon [icon]="['far', 'calendar']"></fa-icon>
+          </button>
+        </div>
+        <div class="input-group-append">
+          <div class="input-group-text" (click)="clear()">
+            <i class="fa fa-times" style="cursor: pointer;"></i>
+          </div>
+        </div>
+
+        <div *ngIf="control.dirty && control.invalid" class="invalid-feedback">
+          {{getErrorMessage()}}
+        </div>
+      </div>
+      <ng-tempplate #calendarContent>
+        <div>
+          <div *ngIf="!showTimePickerToggle">
+            <ngb-datepicker id="{{id}}-datepicker" #dp name="{{id}}-datepicker" [ngModel]="datetime" (ngModelChange)="onDateChange($event, dp)">
+            </ngb-datepicker>
+            <button type="button" class="btn btn-block btn-outline-secondary" [disabled]="!datetime.day" [nbgPopover]="timePickerContent" (click)="toggleDateTimeState($event)">
+              <fa-icon [icon]="['far', 'clock']"></fa-icon>
+            </button>
+          </div>
+          <div *ngIf="showTimePickerToggle">
+            <button type="button" class="btn btn-block btn-outline-secondary" [ngbPopover]="calendarContent" (click)="toggleDateTimeState($event)">
+              <fa-icon [icon]="['far', 'calendar']"></fa-icon>
+            </button>
+            <div class="mt-auto">
+              <ngb-timepicker #tp id="{{id}}-timepicker" name="{{id}}-timepicker" [ngModel]="datetime" (ngModelChange)="onTimeChange($event)" [seconds]="seconds"></ngb-timepicker>
+            </div>
+          </div>
+        </div>
+      </ng-tempplate>
+    </div>
+  </div>
+</div>

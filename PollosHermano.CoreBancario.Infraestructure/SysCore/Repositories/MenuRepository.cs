@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.Repositories
 {
-    public class MenuRepository : RepositoryGenericSqlServer<Menu>, IMenuRepository
+    public partial class MenuRepository : RepositoryGenericSqlServer<Menu>, IMenuRepository
     {
         public MenuRepository(ISysCoreFactory dbFactory)
             : base(dbFactory)

@@ -5,7 +5,7 @@ using PollosHermano.CoreBancario.Infraestructure.SysCore.Factories;
 
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.Repositories
 {
-    public class RoleMenuRepository : RepositoryGenericSqlServer<RoleMenu>, IRoleMenuRepository
+    public partial class RoleMenuRepository : RepositoryGenericSqlServer<RoleMenu>, IRoleMenuRepository
     {
         public RoleMenuRepository(ISysCoreFactory dbFactory)
             : base(dbFactory)

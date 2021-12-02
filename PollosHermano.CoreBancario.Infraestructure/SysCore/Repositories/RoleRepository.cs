@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.Repositories
 {
-    public class RoleRepository : RepositoryGenericSqlServer<Role>, IRoleRepository
+    public partial class RoleRepository : RepositoryGenericSqlServer<Role>, IRoleRepository
     {
         public RoleRepository(ISysCoreFactory dbFactory)
             : base(dbFactory)

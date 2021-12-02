@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Application.SysCore.Services
 {
-    public class RoleService : EntityService<Role>, IRoleService
+    public partial class RoleService : EntityService<Role>, IRoleService
     {
         readonly ISysCoreUnitOfWork _unitOfWork;
         readonly IRoleRepository _repository;

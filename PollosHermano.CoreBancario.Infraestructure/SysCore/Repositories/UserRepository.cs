@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.Repositories
 {
-    public class UserRepository : RepositoryGenericSqlServer<User>, IUserRepository
+    public partial class UserRepository : RepositoryGenericSqlServer<User>, IUserRepository
     {
         public UserRepository(ISysCoreFactory dbFactory)
             : base(dbFactory)

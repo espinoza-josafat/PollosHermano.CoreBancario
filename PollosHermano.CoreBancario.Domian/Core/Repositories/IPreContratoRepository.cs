@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Repositories
 {
-    public interface IPreContratoRepository : IRepositorySqlServer<PreContrato>
+    public partial interface IPreContratoRepository : IRepositorySqlServer<PreContrato>
     {
         Task<PreContrato> GetByIdAsync(int id);
     

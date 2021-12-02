@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.SysCore.Dao
 {
-    public interface IMenuDao
+    public partial interface IMenuDao
     {
         Task<IEnumerable<MenuModel>> GetMenusByUser(Guid userId);
     }

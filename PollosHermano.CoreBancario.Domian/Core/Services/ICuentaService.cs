@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Services
 {
-    public interface ICuentaService : IEntityService<Cuenta>
+    public partial interface ICuentaService : IEntityService<Cuenta>
     {
         Task<IEnumerable<GetCuentaListModel>> GetCuentaListAsync();
 

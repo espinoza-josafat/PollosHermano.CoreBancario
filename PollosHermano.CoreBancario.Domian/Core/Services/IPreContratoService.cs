@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Services
 {
-    public interface IPreContratoService : IEntityService<PreContrato>
+    public partial interface IPreContratoService : IEntityService<PreContrato>
     {
         Task<IEnumerable<GetPreContratoListModel>> GetPreContratoListAsync();
 

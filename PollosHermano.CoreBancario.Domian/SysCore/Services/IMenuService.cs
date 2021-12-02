@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.SysCore.Services
 {
-    public interface IMenuService : IEntityService<Menu>
+    public partial interface IMenuService : IEntityService<Menu>
     {
         Task<Menu> GetByIdAsync(Guid id);
     }

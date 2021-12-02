@@ -3,7 +3,7 @@ using PollosHermano.CoreBancario.Entities.SysCore;
 
 namespace PollosHermano.CoreBancario.Domian.SysCore.Repositories
 {
-    public interface IRoleMenuRepository : IRepositorySqlServer<RoleMenu>
+    public partial interface IRoleMenuRepository : IRepositorySqlServer<RoleMenu>
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Repositories
 {
-    public interface ICatTipoCuentaRepository : IRepositorySqlServer<CatTipoCuenta>
+    public partial interface ICatTipoCuentaRepository : IRepositorySqlServer<CatTipoCuenta>
     {
         Task<CatTipoCuenta> GetByIdAsync(byte id);
     

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Repositories
 {
-    public interface IClienteRepository : IRepositorySqlServer<Cliente>
+    public partial interface IClienteRepository : IRepositorySqlServer<Cliente>
     {
         Task<Cliente> GetByIdAsync(int id);
     

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Infraestructure.Core.Repositories
 {
-    public class ContratoRepository : RepositorySqlServer<Contrato>, IContratoRepository
+    public partial class ContratoRepository : RepositorySqlServer<Contrato>, IContratoRepository
     {
         public ContratoRepository(IPollosHermanoCoreBancarioDBFactory dbFactory)
             : base(dbFactory)

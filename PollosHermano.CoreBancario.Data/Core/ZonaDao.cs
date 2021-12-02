@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Data.Core
 {
-    public class ZonaDao : IZonaDao
+    public partial class ZonaDao : IZonaDao
     {
         public async Task<IEnumerable<GetZonaListModel>> GetZonaListAsync()
         {

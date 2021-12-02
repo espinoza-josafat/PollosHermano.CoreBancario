@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Data.SysCore
 {
-    public class MenuDao : IMenuDao
+    public partial class MenuDao : IMenuDao
     {
         public async Task<IEnumerable<MenuModel>> GetMenusByUser(Guid userId)
         {

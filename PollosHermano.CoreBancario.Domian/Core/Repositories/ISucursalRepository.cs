@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Repositories
 {
-    public interface ISucursalRepository : IRepositorySqlServer<Sucursal>
+    public partial interface ISucursalRepository : IRepositorySqlServer<Sucursal>
     {
         Task<Sucursal> GetByIdAsync(byte id);
     

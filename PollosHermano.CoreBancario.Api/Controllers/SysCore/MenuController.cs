@@ -14,7 +14,7 @@ namespace PollosHermano.CoreBancario.Api.Controllers.SysCore
 {
     [Route("SysCore/[controller]")]
     [ApiController]
-    public class MenuController : ControllerBase
+    public partial class MenuController : ControllerBase
     {
         readonly IMenuService _service;
         readonly IProcessGetMenusByUser _processGetMenusByUser;

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Dao
 {
-    public interface ISucursalDao
+    public partial interface ISucursalDao
     {
         Task<IEnumerable<GetSucursalListModel>> GetSucursalListAsync();
     }

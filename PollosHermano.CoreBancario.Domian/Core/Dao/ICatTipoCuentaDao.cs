@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Dao
 {
-    public interface ICatTipoCuentaDao
+    public partial interface ICatTipoCuentaDao
     {
         Task<IEnumerable<GetCatTipoCuentaListModel>> GetCatTipoCuentaListAsync();
     }

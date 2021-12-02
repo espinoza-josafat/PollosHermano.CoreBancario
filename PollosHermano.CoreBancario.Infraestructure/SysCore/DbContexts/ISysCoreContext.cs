@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.DbContexts
 {
-    public interface ISysCoreContext : IUnitOfWorkSqlServer
+    public partial interface ISysCoreContext : IUnitOfWorkSqlServer
     {
         DbSet<RoleClaim> RoleClaims { get; set; }
         DbSet<Role> Roles { get; set; }

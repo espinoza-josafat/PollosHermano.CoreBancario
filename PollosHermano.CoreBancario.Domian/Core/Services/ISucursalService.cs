@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Services
 {
-    public interface ISucursalService : IEntityService<Sucursal>
+    public partial interface ISucursalService : IEntityService<Sucursal>
     {
         Task<IEnumerable<GetSucursalListModel>> GetSucursalListAsync();
 

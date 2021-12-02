@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Infraestructure.Core.Repositories
 {
-    public class CuentaRepository : RepositorySqlServer<Cuenta>, ICuentaRepository
+    public partial class CuentaRepository : RepositorySqlServer<Cuenta>, ICuentaRepository
     {
         public CuentaRepository(IPollosHermanoCoreBancarioDBFactory dbFactory)
             : base(dbFactory)

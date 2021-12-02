@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Dao
 {
-    public interface IPreContratoDao
+    public partial interface IPreContratoDao
     {
         Task<IEnumerable<GetPreContratoListModel>> GetPreContratoListAsync();
     }

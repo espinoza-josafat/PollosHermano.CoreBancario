@@ -6,7 +6,7 @@ using PollosHermano.CoreBancario.Entities.SysCore;
 
 namespace PollosHermano.CoreBancario.Application.SysCore.Services
 {
-    public class RoleMenuService : EntityService<RoleMenu>, IRoleMenuService
+    public partial class RoleMenuService : EntityService<RoleMenu>, IRoleMenuService
     {
         readonly ISysCoreUnitOfWork _unitOfWork;
         readonly IRoleMenuRepository _repository;

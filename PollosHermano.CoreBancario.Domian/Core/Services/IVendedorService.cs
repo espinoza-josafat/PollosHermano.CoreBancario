@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Domian.Core.Services
 {
-    public interface IVendedorService : IEntityService<Vendedor>
+    public partial interface IVendedorService : IEntityService<Vendedor>
     {
         Task<IEnumerable<GetVendedorListModel>> GetVendedorListAsync();
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Application.Core.Services
 {
-    public class SucursalService : EntityService<Sucursal>, ISucursalService
+    public partial class SucursalService : EntityService<Sucursal>, ISucursalService
     {
         readonly IPollosHermanoCoreBancarioDBUnitOfWork _unitOfWork;
         readonly ISucursalRepository _repository;

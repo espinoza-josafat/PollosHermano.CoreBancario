@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PollosHermano.CoreBancario.Data.Core
 {
-    public class PreContratoDao : IPreContratoDao
+    public partial class PreContratoDao : IPreContratoDao
     {
         public async Task<IEnumerable<GetPreContratoListModel>> GetPreContratoListAsync()
         {
