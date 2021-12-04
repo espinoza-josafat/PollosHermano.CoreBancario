@@ -119,7 +119,8 @@ export class VerticalMenuComponent implements OnInit, AfterViewInit, OnDestroy {
         this.config = templateConf;
       }
       this.loadLayout();
-      this.cdr.markForCheck();
+      //this.cdr.markForCheck();
+      this.cdr.detectChanges();
     });
 
     this.layoutSub = this.layoutService.overlaySidebarToggle$.subscribe(
