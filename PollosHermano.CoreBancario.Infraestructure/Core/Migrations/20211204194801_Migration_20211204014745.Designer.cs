@@ -10,8 +10,8 @@ using PollosHermano.CoreBancario.Infraestructure.Core.DbContexts;
 namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
 {
     [DbContext(typeof(PollosHermanoCoreBancarioDBContext))]
-    [Migration("20211201155125_Migration_20211201095111")]
-    partial class Migration_20211201095111
+    [Migration("20211204194801_Migration_20211204014745")]
+    partial class Migration_20211204014745
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -184,6 +184,10 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
                         .HasColumnName("Direccion");
+
+                    b.Property<DateTime?>("FechaCreacion")
+                        .HasColumnType("datetime")
+                        .HasColumnName("FechaCreacion");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

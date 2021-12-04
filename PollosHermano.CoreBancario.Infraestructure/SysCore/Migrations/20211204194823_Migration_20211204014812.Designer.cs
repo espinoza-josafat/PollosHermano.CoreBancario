@@ -10,8 +10,8 @@ using PollosHermano.CoreBancario.Infraestructure.SysCore.DbContexts;
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.Migrations
 {
     [DbContext(typeof(SysCoreContext))]
-    [Migration("20211201155150_Migration_20211201095139")]
-    partial class Migration_20211201095139
+    [Migration("20211204194823_Migration_20211204014812")]
+    partial class Migration_20211204014812
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

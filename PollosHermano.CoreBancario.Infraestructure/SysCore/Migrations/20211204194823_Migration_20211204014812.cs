@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PollosHermano.CoreBancario.Infraestructure.SysCore.Migrations
 {
-    public partial class Migration_20211130063458 : Migration
+    public partial class Migration_20211204014812 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

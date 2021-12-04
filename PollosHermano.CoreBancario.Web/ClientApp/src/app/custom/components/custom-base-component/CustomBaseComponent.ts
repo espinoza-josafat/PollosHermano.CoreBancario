@@ -21,8 +21,9 @@ import { CustomRadioComponent } from "../custom-radio/custom-radio.component";
 import { CustomTextAreaComponent } from "../custom-textarea/custom-textarea.component";
 import { CustomTextFieldComponent } from "../custom-textfield/custom-textfield.component";
 import { CustomDateComponent } from "../custom-date/custom-date.component";
-import { TextfieldMask } from "../../enums/TextfieldMask";
 import { CustomTimeComponent } from "../custom-time/custom-time.component";
+import { CustomDateTimeComponent } from "../custom-datetime/custom-datetime.component";
+import { TextfieldMask } from "../../enums/TextfieldMask";
 
 @Injectable()
 export abstract class CustomBaseComponent
@@ -150,6 +151,14 @@ export abstract class CustomBaseComponent
             model[name] = valueCustomTimeComponent;
           }
           break;
+        case "CustomDateTimeComponent":
+          const customCustomDateTimeComponent = (x.component as CustomDateTimeComponent);
+          const valueCustomDateTimeComponent = customCustomDateTimeComponent.value;
+          if (valueCustomDateTimeComponent !== undefined &&
+            valueCustomDateTimeComponent !== null) {
+            model[name] = valueCustomDateTimeComponent;
+          }
+          break;
       }
     });
 
@@ -229,6 +238,12 @@ export abstract class CustomBaseComponent
         const customTimeComponent = (validator.component as CustomTimeComponent);
         if (value !== undefined && value !== null) {
           customTimeComponent.value = value;
+        }
+        break;
+      case "CustomDateTimeComponent":
+        const customDateTimeComponent = (validator.component as CustomDateTimeComponent);
+        if (value !== undefined && value !== null) {
+          customDateTimeComponent.value = value;
         }
         break;
     }

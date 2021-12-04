@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
 {
-    public partial class Migration_20211130063410 : Migration
+    public partial class Migration_20211204014745 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,8 +30,8 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ApellidoPaterno = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    ApellidoPaterno = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     ApellidoMaterno = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     FechaNacimiento = table.Column<DateTime>(type: "Date", nullable: false)
                 },
@@ -47,7 +47,8 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
                 {
                     Id = table.Column<byte>(type: "tinyint", nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                    Direccion = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,9 +85,9 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ApellidoPaterno = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     IdZona = table.Column<int>(type: "int", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    ApellidoPaterno = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     ApellidoMaterno = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true)
                 },
                 constraints: table =>
@@ -108,12 +109,12 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreProspecto = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    FechaNacimientoProspecto = table.Column<DateTime>(type: "Date", nullable: false),
-                    ApellidoMaternoProspecto = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     IdVendedor = table.Column<int>(type: "int", nullable: false),
+                    Numero = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    NombreProspecto = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     ApellidoPaternoProspecto = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Numero = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
+                    ApellidoMaternoProspecto = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
+                    FechaNacimientoProspecto = table.Column<DateTime>(type: "Date", nullable: false)
                 },
                 constraints: table =>
                 {

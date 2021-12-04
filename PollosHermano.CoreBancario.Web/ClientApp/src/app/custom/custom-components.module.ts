@@ -17,6 +17,7 @@ import { CustomRadioComponent } from "./components/custom-radio/custom-radio.com
 import { CustomHiddenComponent } from "./components/custom-hidden/custom-hidden.component";
 import { CustomDateComponent } from "./components/custom-date/custom-date.component";
 import { CustomTimeComponent } from "./components/custom-time/custom-time.component";
+import { CustomDateTimeComponent } from "./components/custom-datetime/custom-datetime.component";
 
 @NgModule({
   exports: [
@@ -30,7 +31,8 @@ import { CustomTimeComponent } from "./components/custom-time/custom-time.compon
     CustomRadioComponent,
     CustomHiddenComponent,
     CustomDateComponent,
-    CustomTimeComponent
+    CustomTimeComponent,
+    CustomDateTimeComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { CustomTimeComponent } from "./components/custom-time/custom-time.compon
     CustomRadioComponent,
     CustomHiddenComponent,
     CustomDateComponent,
-    CustomTimeComponent
+    CustomTimeComponent,
+    CustomDateTimeComponent
   ]
 })
 export class CustomComponentsModule { }

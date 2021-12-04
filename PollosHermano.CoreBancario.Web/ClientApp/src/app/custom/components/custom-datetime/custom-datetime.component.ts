@@ -1,5 +1,5 @@
-import { Component, ElementRef, EventEmitter, Injectable, Input, OnInit, Output, ViewChild } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Injectable, Injector, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { FormControl, NgControl, Validators } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
 //import { fullLengthValidator } from "../../validators/fullLengthValidator";
 //import { TextfieldMask } from "../../enums/TextfieldMask";
@@ -13,7 +13,9 @@ import { IVisible } from "../../interfaces/IVisible";
 //import { IsTrue } from "../../rules-engine/rules/IsTrue";
 //import { ViewEncapsulation } from "@angular/core";
 
-import { NgbDateStruct, NgbDatepickerI18n, NgbCalendar, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbDatepickerI18n, NgbCalendar, NgbDateParserFormatter, NgbPopover, NgbPopoverConfig, NgbTimeStruct, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { DateTimeModel } from "./DateTimeModel";
+import { noop } from "rxjs";
 
 const I18N_VALUES = {
   en: {
@@ -100,16 +102,16 @@ export function padNumber(value: number) {
 }
 
 @Component({
-  selector: "custom-date",
-  templateUrl: "./custom-date.component.html",
-  styleUrls: ["./custom-date.component.scss"],
+  selector: "custom-datetime",
+  templateUrl: "./custom-datetime.component.html",
+  styleUrls: ["./custom-datetime.component.scss"],
   providers: [
     { provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter },
     I18n,
     { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n },
   ]
 })
-export class CustomDateComponent
+export class CustomDateTimeComponent
   implements
   ICustomComponent,
   OnInit,
@@ -119,11 +121,22 @@ export class CustomDateComponent
   //privadas
   underlyingElement: any;
 
+  @Input()
+  dateString: string;
+
   //public
   @Input() id: string;
   @Input() tag: string;
-  @Input() model: any = null;
+
+  get model(): DateTimeModel {
+    return this.datetime;
+  }
+  @Input() set model(value: DateTimeModel) {
+    this.datetime = value;
+  }
   @Output() modelChange = new EventEmitter<any>();
+  @Input()
+  //inputDatetimeFormat = "yyyy/MM/dd HH:mm:ss";
   //@Input() minLength: number;
   //@Input() maxLength: number;
   @Input() visible: boolean = true;
@@ -144,6 +157,9 @@ export class CustomDateComponent
 
   @Input() minValue: any = { year: 1920, month: 1, day: 1 };
   @Input() maxValue: any = { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() };
+
+  @Input()
+  seconds = true;
 
   //@Input() visible: string = "true";
 
@@ -169,8 +185,28 @@ export class CustomDateComponent
 
   //validationContext: ValidationContext = new ValidationContext();
 
-  constructor(private _i18n: I18n) {
+
+  private showTimePickerToggle = false;
+
+  private datetime: DateTimeModel = new DateTimeModel();
+  private firstTimeAssign = true;
+
+  // @ViewChild(NgbDatepicker, { static: true })
+  // private dp: NgbDatepicker;
+
+  @ViewChild(NgbPopover, { static: true })
+  private popover: NgbPopover;
+
+  private onTouched: () => void = noop;
+  private onComponentChange: (_: any) => void = noop;
+
+  //private ngControl: NgControl;
+
+
+  constructor(private _i18n: I18n, private config: NgbPopoverConfig, private inj: Injector, private cdRef: ChangeDetectorRef) {
     //debugger
+    config.autoClose = "outside";
+    config.placement = "auto";
 
     //this.validationContext.withSource("dsfsd").addRule(new IsTrue('ThisIsTrue', 'This is not true', true, true));
 
@@ -191,7 +227,7 @@ export class CustomDateComponent
   @ViewChild("element") element: ElementRef;
 
   private consoleLogEvent(event: string) {
-    console.log(`${event} => CustomDateComponent => ${Utils.IsValidStringNotWhiteSpace(this.id) ? this.id : ""}`);
+    console.log(`${event} => CustomDateTimeComponent => ${Utils.IsValidStringNotWhiteSpace(this.id) ? this.id : ""}`);
   }
 
   getBoolean(value: any) {
@@ -210,7 +246,9 @@ export class CustomDateComponent
       this.consoleLogEvent("ngOnInit");
       //console.log("this.mask: " + this.mask);
     }
-    
+
+    //this.ngControl = this.inj.get(NgControl);
+
     //if (this.mask === TextfieldMask.Email) {
     //  this.type = "email";
     //}
@@ -291,6 +329,16 @@ export class CustomDateComponent
     if (validators.length > 0) {
       this.control = new FormControl("", validators);
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.popover.hidden.subscribe($event => {
+      this.showTimePickerToggle = false;
+    });
+  }
+
+  ngAfterContentChecked(): void {
+    this.cdRef.detectChanges();
   }
 
   onClick(event: any) {
@@ -421,6 +469,8 @@ export class CustomDateComponent
       this.consoleLogEvent("onBlur");
     }
 
+    this.inputBlur(event);
+
     this.blur.emit({component: this, event: event});
   }
 
@@ -440,6 +490,8 @@ export class CustomDateComponent
     if (this.enabledLog) {
       this.consoleLogEvent("onChange");
     }
+
+    this.onInputChange(event);
 
     this.onChangeInput(event);
   }
@@ -508,11 +560,116 @@ export class CustomDateComponent
     }
   }
 
+  writeValue(newModel: string) {
+    if (newModel) {
+      this.datetime = Object.assign(
+        this.datetime,
+        DateTimeModel.fromLocalString(newModel)
+      );
+      this.dateString = newModel;
+      this.setDateStringModel();
+    } else {
+      this.datetime = new DateTimeModel();
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.onComponentChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  toggleDateTimeState($event) {
+    this.showTimePickerToggle = !this.showTimePickerToggle;
+    $event.stopPropagation();
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.enabled = !isDisabled;
+  }
+
+  private onInputChange($event: any) {
+    const value = $event.target.value;
+    const dt = DateTimeModel.fromLocalString(value);
+
+    if (dt) {
+      this.datetime = dt;
+      this.setDateStringModel();
+    } else if (value.trim() === "") {
+      this.clear();
+    } else {
+      this.onComponentChange(value);
+    }
+  }
+
+  onDateChange($event: string | NgbDateStruct, dp: NgbDatepicker) {
+    const date = new DateTimeModel($event);
+
+    if (!date) {
+      this.dateString = this.dateString;
+      return;
+    }
+
+    if (!this.datetime) {
+      this.datetime = date;
+    }
+
+    this.datetime.year = date.year;
+    this.datetime.month = date.month;
+    this.datetime.day = date.day;
+
+    /*const adjustedDate = new Date(this.datetime.toString());
+    if (this.datetime.timeZoneOffset !== adjustedDate.getTimezoneOffset()) {
+      this.datetime.timeZoneOffset = adjustedDate.getTimezoneOffset();
+    }*/
+
+    this.setDateStringModel();
+  }
+
+  onTimeChange(event: NgbTimeStruct) {
+    this.datetime.hour = event.hour;
+    this.datetime.minute = event.minute;
+    this.datetime.second = event.second;
+
+    this.setDateStringModel();
+  }
+
+  setDateStringModel() {
+    this.dateString = this.datetime.toString();
+
+    if (!this.firstTimeAssign) {
+      this.onComponentChange(this.dateString);
+    } else {
+      // Skip very first assignment to null done by Angular
+      if (this.dateString !== null) {
+        this.firstTimeAssign = false;
+      }
+    }
+
+    this.modelChangeEmit();
+  }
+
+  inputBlur($event) {
+    this.onTouched();
+  }
+
   public clear(): void {
-    this.model = null;
+    this.datetime = new DateTimeModel();
+    this.dateString = "";
+    this.onComponentChange(this.dateString);
+    this.modelChangeEmit();
+    //this.cdRef.detectChanges();
+  }
+
+  private modelChangeEmit() {
+    this.modelChange.emit(this.model);
+    this.change.emit({ component: this, event: undefined });
   }
 
   getErrorMessage() {
+    //debugger
     //let result = "";
 
     if (this.control.hasError("required")) {
@@ -558,18 +715,31 @@ export class CustomDateComponent
   }
 
   getType(): string {
-    return "CustomDateComponent";
+    return "CustomDateTimeComponent";
   }
 
   set value(value: string) {
     try {
+      let items = [];
       if (value.includes("T") || value.includes(" ")) {
         if (value.includes("T")) {
-          value = value.split("T")[0];
+          items = value.split("T");
         }
         else if (value.includes(" ")) {
-          value = value.split(" ")[0];
+          items = value.split(" ");
         }
+      }
+      let time = "00:00:00";
+
+      if (items.length > 0) {
+        value = items[0];
+      }
+      if (items.length > 1) {
+        time = items[1];
+      }
+
+      if (time.includes(".")) {
+        time = time.split(".")[0];
       }
 
       let dataDate = [];
@@ -580,14 +750,21 @@ export class CustomDateComponent
         dataDate = value.split("/");
       }
 
+      let dataTime = [];
+      if (time.includes(":")) {
+        dataTime = time.split(":");
+      }
+
       if (dataDate && dataDate.length === 3) {
-        this.model = {
+        this.datetime = new DateTimeModel({
           year: parseInt(dataDate[0]),
           month: parseInt(dataDate[1]),
-          day: parseInt(dataDate[2])
-        };
-        this.modelChange.emit(this.model);
-        this.change.emit({ component: this, event: undefined });
+          day: parseInt(dataDate[2]),
+          hour: parseInt(dataTime[0]),
+          minute: parseInt(dataTime[1]),
+          second: parseInt(dataTime[2])
+        });
+        this.setDateStringModel();
       }
     }
     catch (error) {
@@ -596,7 +773,6 @@ export class CustomDateComponent
   }
 
   get value(): string {
-    return this.model !== undefined && this.model !== null ?
-      this.model.year + "/" + (this.model.month.toString().length == 1 ? ("0" + this.model.month.toString()) : this.model.month.toString()) + "/" + (this.model.day.toString().length == 1 ? "0" + this.model.day.toString() : this.model.day.toString()) : null;
+    return this.model !== undefined && this.model !== null ? this.datetime.toString() : null;
   }
 }

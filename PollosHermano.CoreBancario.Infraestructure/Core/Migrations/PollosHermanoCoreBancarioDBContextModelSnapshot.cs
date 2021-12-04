@@ -183,6 +183,10 @@ namespace PollosHermano.CoreBancario.Infraestructure.Core.Migrations
                         .HasColumnType("nvarchar(250)")
                         .HasColumnName("Direccion");
 
+                    b.Property<DateTime?>("FechaCreacion")
+                        .HasColumnType("datetime")
+                        .HasColumnName("FechaCreacion");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(25)

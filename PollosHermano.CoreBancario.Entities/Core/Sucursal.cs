@@ -27,6 +27,9 @@ namespace PollosHermano.CoreBancario.Entities.Core
         [MaxLength(250)]
         public virtual string Direccion { get; set; }
         
+        [Column("FechaCreacion", Order = 4, TypeName = "datetime")]
+        public virtual DateTime? FechaCreacion { get; set; }
+        
         
     }
 }
