@@ -166,7 +166,13 @@ export class CustomTimeComponent
         if (items.length === 3) {
           const sHour = items[0];
           const sMinute = items[1];
-          const sSecond = items[2];
+          let sSecond = null;
+          if (items[2].includes(".")) {
+            sSecond = items[2].split(".")[0];
+          }
+          else {
+            sSecond = items[2];
+          }
 
           const hour = Number(sHour);
           const minute = Number(sMinute);
@@ -181,7 +187,8 @@ export class CustomTimeComponent
               minute: minute,
               second: second
             };
-
+            this.cdRef.detectChanges();
+            this.modelChange.emit(this.model);
           }
         }
       }

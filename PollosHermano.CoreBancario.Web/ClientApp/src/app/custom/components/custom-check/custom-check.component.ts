@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
 import { ICustomComponent } from "../../interfaces/ICustomComponent";
@@ -43,7 +43,7 @@ export class CustomCheckComponent
 
   enabledLog: boolean = false;
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
 
   }
 
@@ -102,9 +102,12 @@ export class CustomCheckComponent
   }
 
   set value(value: boolean) {
-    this.model = value;
-    this.modelChange.emit(this.model);
-    this.change.emit({ component: this, event: undefined });
+    if (Utils.IsValidBoolean(value)) {
+      this.model = value;
+      this.cdRef.detectChanges();
+      this.modelChange.emit(this.model);
+      this.change.emit({ component: this, event: undefined });
+    }
   }
 
   get value(): boolean {

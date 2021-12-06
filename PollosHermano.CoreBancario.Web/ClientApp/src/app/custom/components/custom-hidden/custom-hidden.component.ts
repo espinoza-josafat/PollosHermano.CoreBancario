@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
 import { ICustomComponent } from "../../interfaces/ICustomComponent";
@@ -23,7 +23,7 @@ export class CustomHiddenComponent
   
   enabledLog: boolean = false;
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     //debugger
   }
 
@@ -45,6 +45,7 @@ export class CustomHiddenComponent
 
   set value(value: string) {
     this.model = value;
+    this.cdRef.detectChanges();
     this.modelChange.emit(this.model);
   }
 

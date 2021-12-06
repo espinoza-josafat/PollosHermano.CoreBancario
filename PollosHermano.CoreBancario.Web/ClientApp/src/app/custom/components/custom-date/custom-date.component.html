@@ -76,14 +76,14 @@
                (contextmenu)="onContextMenu($event)"
                autocomplete="off" />
         <div class="input-group-append">
-          <div class="input-group-text" (click)="underlyingElement.toggle()">
-            <i class="fa fa-calendar" style="cursor: pointer;"></i>
-          </div>
+          <button type="button" class="btn btn-outline-secondary" (click)="underlyingElement.toggle()" [attr.disabled]="getBoolean(enabled) ? null : true">
+            <i class="fa fa-calendar"></i>
+          </button>
         </div>
         <div class="input-group-append">
-          <div class="input-group-text" (click)="clear()">
-            <i class="fa fa-times" style="cursor: pointer;"></i>
-          </div>
+          <button type="button" class="btn btn-outline-secondary" (click)="clear()" [attr.disabled]="getBoolean(enabled) ? null : true">
+            <i class="fa fa-times"></i>
+          </button>
         </div>
 
         <div *ngIf="control.dirty && control.invalid" class="invalid-feedback">

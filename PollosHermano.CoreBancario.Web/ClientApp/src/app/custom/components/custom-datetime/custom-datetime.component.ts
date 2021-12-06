@@ -337,10 +337,6 @@ export class CustomDateTimeComponent
     });
   }
 
-  ngAfterContentChecked(): void {
-    this.cdRef.detectChanges();
-  }
-
   onClick(event: any) {
     if (this.enabledLog) {
       this.consoleLogEvent("onClick");
@@ -664,7 +660,8 @@ export class CustomDateTimeComponent
   }
 
   private modelChangeEmit() {
-    this.modelChange.emit(this.model);
+    this.cdRef.detectChanges();
+    this.modelChange.emit(this.datetime);
     this.change.emit({ component: this, event: undefined });
   }
 
@@ -773,6 +770,6 @@ export class CustomDateTimeComponent
   }
 
   get value(): string {
-    return this.model !== undefined && this.model !== null ? this.datetime.toString() : null;
+    return this.datetime !== undefined && this.datetime !== null ? this.datetime.toString() : null;
   }
 }

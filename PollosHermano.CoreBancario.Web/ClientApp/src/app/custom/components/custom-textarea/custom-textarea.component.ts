@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
 //import { TextfieldMask } from "../../enums/TextfieldMask";
 import { FormControl, Validators } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
@@ -70,7 +70,7 @@ export class CustomTextAreaComponent
 
   enabledLog: boolean = false;
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     //debugger
   }
 
@@ -337,10 +337,15 @@ export class CustomTextAreaComponent
     return "CustomTextAreaComponent";
   }
 
+  private modelChangeEmit() {
+    this.modelChange.emit(this.model);
+    this.change.emit({ component: this, event: event });
+  }
+
   set value(value: string) {
     this.model = value;
-    this.modelChange.emit(this.model);
-    this.change.emit({ component: this, event: undefined });
+    this.cdRef.detectChanges();
+    this.modelChangeEmit();
   }
 
   get value(): string {

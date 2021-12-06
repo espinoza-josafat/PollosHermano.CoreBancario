@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
 import { fullLengthValidator } from "../..//validators/fullLengthValidator";
@@ -76,7 +76,7 @@ export class CustomTextFieldComponent
 
   //validationContext: ValidationContext = new ValidationContext();
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     //debugger
 
     //this.validationContext.withSource("dsfsd").addRule(new IsTrue('ThisIsTrue', 'This is not true', true, true));
@@ -464,10 +464,15 @@ export class CustomTextFieldComponent
     return "CustomTextFieldComponent";
   }
 
+  private modelChangeEmit() {
+    this.modelChange.emit(this.model);
+    this.change.emit({ component: this, event: event });
+  }
+
   set value(value: string) {
     this.model = value;
-    this.modelChange.emit(this.model);
-    this.change.emit({ component: this, event: undefined });
+    this.cdRef.detectChanges();
+    this.modelChangeEmit();
   }
 
   get value(): string {

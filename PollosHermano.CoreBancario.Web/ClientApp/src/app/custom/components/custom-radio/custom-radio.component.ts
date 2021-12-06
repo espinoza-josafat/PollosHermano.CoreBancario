@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
 import { ICustomComponent } from "../../interfaces/ICustomComponent";
@@ -52,7 +52,7 @@ export class CustomRadioComponent
   
   enabledLog: boolean = false;
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     //debugger
   }
 
@@ -99,7 +99,12 @@ export class CustomRadioComponent
     }
 
     this.modelChange.emit(this.model);
-    this.change.emit({component: this, event: event});
+    this.change.emit({ component: this, event: event });
+  }
+
+  private modelChangeEmit() {
+    this.modelChange.emit(this.model);
+    this.change.emit({ component: this, event: event });
   }
 
   getErrorMessage() {
@@ -153,8 +158,8 @@ export class CustomRadioComponent
       let value = item;
       if (value === model) {
         this.model = item;
-        this.modelChange.emit(this.model);
-        this.change.emit({ component: this, event: event });
+        this.cdRef.detectChanges();
+        this.modelChangeEmit();
         break;
       }
     }

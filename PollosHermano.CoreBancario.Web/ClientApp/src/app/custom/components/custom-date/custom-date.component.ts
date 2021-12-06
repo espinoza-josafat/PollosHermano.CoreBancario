@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Injectable, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Injectable, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import Utils from "../../../shared/helpers/Utils";
 //import { fullLengthValidator } from "../../validators/fullLengthValidator";
@@ -169,7 +169,7 @@ export class CustomDateComponent
 
   //validationContext: ValidationContext = new ValidationContext();
 
-  constructor(private _i18n: I18n) {
+  constructor(private _i18n: I18n, private cdRef: ChangeDetectorRef) {
     //debugger
 
     //this.validationContext.withSource("dsfsd").addRule(new IsTrue('ThisIsTrue', 'This is not true', true, true));
@@ -510,6 +510,7 @@ export class CustomDateComponent
 
   public clear(): void {
     this.model = null;
+    this.modelChangeEmit();
   }
 
   getErrorMessage() {
@@ -557,6 +558,12 @@ export class CustomDateComponent
     return "";
   }
 
+  private modelChangeEmit() {
+    this.cdRef.detectChanges();
+    this.modelChange.emit(this.model);
+    this.change.emit({ component: this, event: undefined });
+  }
+
   getType(): string {
     return "CustomDateComponent";
   }
@@ -586,8 +593,7 @@ export class CustomDateComponent
           month: parseInt(dataDate[1]),
           day: parseInt(dataDate[2])
         };
-        this.modelChange.emit(this.model);
-        this.change.emit({ component: this, event: undefined });
+        this.modelChangeEmit();
       }
     }
     catch (error) {
